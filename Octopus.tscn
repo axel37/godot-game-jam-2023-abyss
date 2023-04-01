@@ -1,0 +1,135 @@
+[gd_scene load_steps=20 format=3 uid="uid://dbuwrmb6noe5d"]
+
+[ext_resource type="Texture2D" uid="uid://kjnwt0ctxyb2" path="res://Assets/Mobs/Octopus-anim/Octopus1.png" id="1_80uhc"]
+[ext_resource type="Script" path="res://Level/PatternJellyfish.gd" id="1_gnvk1"]
+[ext_resource type="Texture2D" uid="uid://bxmlwph8xeecg" path="res://Assets/Mobs/Octopus-anim/Octopus2.png" id="2_lwa0q"]
+[ext_resource type="Texture2D" uid="uid://by5u6kaeq6u44" path="res://Assets/Mobs/Octopus-anim/Octopus3.png" id="3_3lpfh"]
+[ext_resource type="Texture2D" uid="uid://d25edrpbh26xm" path="res://Assets/Mobs/Octopus-anim/Octopus4.png" id="4_yf4av"]
+[ext_resource type="Texture2D" uid="uid://dut3kec8ayse2" path="res://Assets/Mobs/Octopus-anim/Octopus5.png" id="5_p508l"]
+[ext_resource type="Texture2D" uid="uid://m3imgenn8vk7" path="res://Assets/Mobs/Octopus-anim/Octopus6.png" id="6_u4phr"]
+[ext_resource type="Texture2D" uid="uid://c33v0xkrbl248" path="res://Assets/Mobs/Octopus-anim/Octopus7.png" id="7_7prit"]
+[ext_resource type="Texture2D" uid="uid://qrm78lauvac4" path="res://Assets/Mobs/Octopus-anim/Octopus8.png" id="8_i51uy"]
+[ext_resource type="Texture2D" uid="uid://dhendkvu3w8pc" path="res://Assets/Mobs/Octopus-anim/Octopus9.png" id="9_g301a"]
+[ext_resource type="Texture2D" uid="uid://chmnrprt8mo3f" path="res://Assets/Mobs/Octopus-anim/Octopus10.png" id="10_pbuxa"]
+[ext_resource type="Texture2D" uid="uid://rgbrk7hjuvm6" path="res://Assets/Mobs/Octopus-anim/Octopus11.png" id="11_tu2b3"]
+
+[sub_resource type="Curve2D" id="Curve2D_8gsu7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1um7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_80uhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lwa0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3lpfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yf4av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p508l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u4phr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7prit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i51uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g301a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pbuxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tu2b3")
+}],
+"loop": true,
+"name": &"animated_default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lr87"]
+size = Vector2(30, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhm8r"]
+size = Vector2(30, 24)
+
+[sub_resource type="Animation" id="Animation_3h0ue"]
+resource_name = "animated_octopus"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_bsoyj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r84mm"]
+_data = {
+"RESET": SubResource("Animation_bsoyj"),
+"animated_octopus": SubResource("Animation_3h0ue")
+}
+
+[node name="Octopus2D" type="Path2D"]
+curve = SubResource("Curve2D_8gsu7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-43, 21)
+rotation = -0.0119162
+progress = 66.0303
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="PathFollow2D"]
+script = ExtResource("1_gnvk1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_r1um7")
+animation = &"animated_default"
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D/CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D/Area2D"]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_5lr87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_dhm8r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "animated_octopus"
+speed_scale = 0.2
+libraries = {
+"": SubResource("AnimationLibrary_r84mm")
+}

@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 
 func _ready():
-	sprite.play("animated_jellyfish")
+	sprite.play("animated_default")
 
 
 

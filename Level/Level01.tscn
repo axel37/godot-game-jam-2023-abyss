@@ -1,5 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xttpbusu1lqf"]
-
+[gd_scene load_steps=30 format=3 uid="uid://xttpbusu1lqf"]
 
 [ext_resource type="PackedScene" uid="uid://c37lc3fhtcrn2" path="res://UI/hud.tscn" id="1_hmp28"]
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
@@ -8,14 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://cfatt4nel4wdp" path="res://Level/boiling_water.tscn" id="3_0457n"]
 [ext_resource type="Texture2D" uid="uid://d1i8ho0hpxqfm" path="res://Assets/Terrain/tilemap-background2.png" id="4_777l6"]
 [ext_resource type="PackedScene" uid="uid://4garci0kdlcq" path="res://Level/EnemyPath.tscn" id="5_1kan5"]
-[ext_resource type="Texture2D" uid="uid://2h6w14sbi2dw" path="res://Assets/Coral/Coral1-burned1.png" id="6_ycax7"]
-[ext_resource type="Texture2D" uid="uid://nx41vmtuun4e" path="res://Assets/Coral/Coral1-burned2.png" id="7_aswcc"]
-[ext_resource type="Texture2D" uid="uid://cgx5mr520dwqr" path="res://Assets/Coral/Coral2-burned2.png" id="8_3h0pi"]
-[ext_resource type="Texture2D" uid="uid://dju05ah073772" path="res://Assets/Coral/Coral2-burned1.png" id="9_1dn3f"]
+[ext_resource type="Texture2D" uid="uid://bwslv8ujd3y6a" path="res://Assets/Rocks/Rock1-alt.png" id="8_xrahl"]
+[ext_resource type="Texture2D" uid="uid://ddl6jq08lhkb6" path="res://Assets/Rocks/Rock3-alt.png" id="9_1l7op"]
 [ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral/Coral1.png" id="10_kr6mi"]
+[ext_resource type="Texture2D" uid="uid://boqbbh4jha232" path="res://Assets/Rocks/Rock4-alt.png" id="11_7nftj"]
 [ext_resource type="Texture2D" uid="uid://cpsffj3m6b01" path="res://Assets/objects/CanHolder.png" id="11_t3oao"]
+[ext_resource type="Texture2D" uid="uid://bogj1t8asvvxj" path="res://Assets/Coral/Coral2.png" id="12_0arr6"]
 [ext_resource type="Texture2D" uid="uid://bh1p8pi3wg2ei" path="res://Assets/objects/CanHolderEmpty.png" id="12_xdc2k"]
-[ext_resource type="Texture2D" uid="uid://c2rw5jstyy77y" path="res://Assets/Coral/Seaweed1.png" id="13_wxr5l"]
+[ext_resource type="Texture2D" uid="uid://0a7tgv46eqh1" path="res://Assets/Rocks/Rock2-alt.png" id="13_isj1k"]
+[ext_resource type="PackedScene" uid="uid://dbuwrmb6noe5d" path="res://Octopus.tscn" id="14_1yc0s"]
+[ext_resource type="Texture2D" uid="uid://df7ej5dul5nr" path="res://Assets/objects/ginger-piou.png" id="17_pe3l4"]
+[ext_resource type="Texture2D" uid="uid://cxgyepm3sw5jb" path="res://Assets/objects/Plastic-Bag.png" id="18_855e6"]
+[ext_resource type="Texture2D" uid="uid://b2f17yuw3fw4l" path="res://Assets/Mobs/tilemap-fishingline.png" id="19_pplle"]
+[ext_resource type="Texture2D" uid="uid://p0wi211ovrsy" path="res://Assets/Coral/Coral-3.png" id="20_86rv7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -210,6 +214,38 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_xdd8p")
 sources/0 = SubResource("TileSetAtlasSource_vnejo")
 sources/1 = SubResource("TileSetAtlasSource_6mqhl")
 
+[sub_resource type="Curve2D" id="Curve2D_syihj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 148, 62, 0, 0, 0, 0, -2, -38, 0, 0, 0, 0, -4, -119, 0, 0, 0, 0, 111, -143)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_3s07p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 13, 3, 0, 0, 0, 0, 0, -67, 0, 0, 0, 0, 36, -110, 0, 0, 0, 0, 186, -24)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_6fqfb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -24, 35, 0, 0, 0, 0, -208, 33)
+}
+point_count = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6rcxt"]
+texture = ExtResource("19_pplle")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:1/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_e4ji6"]
+sources/0 = SubResource("TileSetAtlasSource_6rcxt")
+
 [node name="Level01" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("1_hmp28")]
@@ -228,7 +264,6 @@ layer_0/tile_data = PackedInt32Array(-1114112, 262145, 0, -1048576, 262145, 1, -
 tile_set = SubResource("TileSet_jsoer")
 format = 2
 layer_0/tile_data = PackedInt32Array(655368, 393217, 3, 720904, 393217, 4, 655369, 458753, 3, 720905, 458753, 4, 655366, 393217, 3, 720902, 393217, 4, 655367, 458753, 3, 720903, 458753, 4, 655364, 393217, 3, 720900, 393217, 4, 655365, 458753, 3, 720901, 458753, 4, 655363, 327681, 3, 720899, 327681, 4, 851968, 393217, 3, 917504, 393217, 4, 851969, 458753, 3, 917505, 458753, 4, 851970, 524289, 3, 917506, 524289, 4, 1048579, 393217, 3, 1114115, 393217, 4, 1048580, 458753, 3, 1114116, 458753, 4, 1048581, 393217, 3, 1114117, 393217, 4, 1048582, 458753, 3, 1114118, 458753, 4, 1048583, 524289, 3, 1114119, 524289, 4, 1048578, 327681, 3, 1114114, 327681, 4, 1179655, 327681, 3, 1245191, 327681, 4, 1179656, 393217, 3, 1245192, 393217, 4, 1179657, 458753, 3, 1245193, 458753, 4, 1179648, 655361, 1, 1245184, 655361, 2, 1245185, 720897, 2, 1310721, 720897, 3, 1245186, 524289, 3, 1310722, 524289, 4, 1376260, 327681, 3, 1441796, 327681, 4, 1376261, 393217, 3, 1441797, 393217, 4, 1376262, 458753, 3, 1441798, 458753, 4, 1376263, 524289, 3, 1441799, 524289, 4, 1703944, 458753, 3, 1703945, 393217, 3, 1703942, 720897, 2, 1703943, 393217, 3, 1638404, 720897, 2, 1703940, 720897, 3, 1638405, 655361, 1, 1703941, 655361, 2, 1572867, 655361, 1, 1638403, 655361, 2, 1572866, 327681, 3, 1638402, 327681, 4, 1769478, 720897, 3, 1769479, 393217, 4, 1769480, 458753, 4, 1769481, 393217, 4, 1638400, 655361, 1, 1703936, 655361, 2, 1703937, 720897, 2, 1769473, 720897, 3, 1703938, 655361, 1, 1769474, 655361, 2, 1769475, 720897, 2, 1835011, 720897, 3, 1769476, 655361, 1, 1835012, 655361, 2, 1835013, 720897, 2, 1900549, 720897, 3, 1835015, 524289, 3, 1900551, 524289, 4, 1835014, 458753, 3, 1900550, 458753, 4, 2097160, 393217, 3, 2162696, 393217, 4, 2097161, 458753, 3, 2162697, 458753, 4, 2097158, 393217, 3, 2162694, 393217, 4, 2097159, 458753, 3, 2162695, 458753, 4, 2097156, 393217, 3, 2162692, 393217, 4, 2097157, 458753, 3, 2162693, 458753, 4, 2097154, 393217, 3, 2162690, 393217, 4, 2097155, 458753, 3, 2162691, 458753, 4, 2097152, 393217, 3, 2162688, 393217, 4, 2097153, 458753, 3, 2162689, 458753, 4)
-
 
 [node name="BoilingWater" parent="." instance=ExtResource("3_0457n")]
 position = Vector2(159, -182)
@@ -257,7 +292,12 @@ text = "Well done
 You've reached the abyss"
 
 [node name="Node2D" parent="." instance=ExtResource("5_1kan5")]
-position = Vector2(234, 503)
+position = Vector2(65, 417)
+curve = SubResource("Curve2D_syihj")
+
+[node name="PathFollow2D" parent="Node2D" index="0"]
+position = Vector2(148, 62)
+progress = 0.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -268,3 +308,113 @@ motion_scale = Vector2(0.9, 0.9)
 tile_set = SubResource("TileSet_jsoer")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1048576, 1, 2, -983040, 1, 3, -917504, 1, 2, -851968, 1, 3, -786432, 1, 2, -720896, 1, 3, -655360, 1, 2, -589824, 1, 3, -524288, 1, 2, -458752, 1, 3, -393216, 1, 2, -327680, 1, 3, -262144, 1, 2, -196608, 1, 3, -131072, 1, 2, -65536, 1, 3, 0, 1, 2, 65536, 1, 3, 131072, 1, 2, 196608, 1, 3, 262144, 1, 2, 327680, 1, 3, 393216, 1, 2, 458752, 1, 3, 524288, 1, 2, 589824, 1, 3, 655360, 1, 2, 720896, 1, 3, 786432, 1, 2, 851968, 1, 3, 917504, 1, 2, 983040, 1, 3, 1048576, 1, 2, 1114112, 1, 3, 1179648, 1, 2, 1245184, 1, 3, 1310720, 1, 2, 1376256, 1, 3, 1441792, 1, 2, 1507328, 1, 3, 1572864, 1, 2, 1638400, 1, 3, 1703936, 1, 2, 1769472, 1, 3, 1835008, 1, 2, 1900544, 1, 3, 1966080, 1, 2, 2031616, 1, 3, 2097152, 1, 2, 2162688, 1, 3, -1048567, 65537, 0, -983031, 65537, 1, -917495, 65537, 0, -851959, 65537, 1, -786423, 65537, 0, -720887, 65537, 1, -655351, 65537, 0, -589815, 65537, 1, -524279, 65537, 0, -458743, 65537, 1, -393207, 65537, 0, -327671, 65537, 1, -262135, 65537, 0, -196599, 65537, 1, -131063, 65537, 0, -65527, 65537, 1, 9, 65537, 0, 65545, 65537, 1, 131081, 65537, 0, 196617, 65537, 1, 262153, 65537, 0, 327689, 65537, 1, 393225, 65537, 0, 458761, 65537, 1, 524297, 65537, 0, 589833, 65537, 1, 655369, 65537, 0, 720905, 65537, 1, 786441, 65537, 0, 851977, 65537, 1, 917513, 65537, 0, 983049, 65537, 1, 1048585, 65537, 0, 1114121, 65537, 1, 1179657, 65537, 0, 1245193, 65537, 1, 1310729, 65537, 0, 1376265, 65537, 1, 1441801, 65537, 0, 1507337, 65537, 1, 1572873, 65537, 0, 1638409, 65537, 1, 1703945, 65537, 0, 1769481, 65537, 1, 1835017, 65537, 0, 1900553, 65537, 1, 1966089, 65537, 0, 2031625, 65537, 1, 2097161, 65537, 0, 2162697, 65537, 1)
+
+[node name="Node2D2" parent="." instance=ExtResource("5_1kan5")]
+position = Vector2(40, 825)
+curve = SubResource("Curve2D_3s07p")
+
+[node name="Rock1-alt" type="Sprite2D" parent="."]
+position = Vector2(117, 325)
+texture = ExtResource("8_xrahl")
+
+[node name="Rock3-alt" type="Sprite2D" parent="."]
+position = Vector2(133, 325)
+texture = ExtResource("9_1l7op")
+
+[node name="Coral1" type="Sprite2D" parent="."]
+position = Vector2(121, 325)
+texture = ExtResource("10_kr6mi")
+
+[node name="Rock4-alt" type="Sprite2D" parent="."]
+position = Vector2(281, 325)
+texture = ExtResource("11_7nftj")
+
+[node name="Coral2" type="Sprite2D" parent="."]
+position = Vector2(288, 327)
+scale = Vector2(0.90625, 0.90625)
+texture = ExtResource("12_0arr6")
+
+[node name="Rock2-alt" type="Sprite2D" parent="."]
+position = Vector2(204, 325)
+texture = ExtResource("13_isj1k")
+
+[node name="Coral4" type="Sprite2D" parent="."]
+position = Vector2(197, 331)
+scale = Vector2(0.59375, 0.59375)
+texture = ExtResource("12_0arr6")
+
+[node name="Octopus2D2" parent="." instance=ExtResource("14_1yc0s")]
+position = Vector2(278, 491)
+curve = SubResource("Curve2D_6fqfb")
+
+[node name="CanHolder" type="Sprite2D" parent="."]
+position = Vector2(89, 106)
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty" type="Sprite2D" parent="."]
+position = Vector2(133, 101)
+texture = ExtResource("12_xdc2k")
+
+[node name="Ginger-piou" type="Sprite2D" parent="."]
+position = Vector2(62, 106)
+texture = ExtResource("17_pe3l4")
+
+[node name="Plastic-bag" type="Sprite2D" parent="."]
+position = Vector2(110, 104)
+texture = ExtResource("18_855e6")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_e4ji6")
+format = 2
+
+[node name="Coral-3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(209, 331)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("20_86rv7")
+
+[node name="Coral-4" type="Sprite2D" parent="."]
+position = Vector2(24, 431)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("20_86rv7")
+
+[node name="Rock1-alt2" type="Sprite2D" parent="."]
+position = Vector2(30, 422)
+scale = Vector2(0.96875, 0.96875)
+texture = ExtResource("8_xrahl")
+
+[node name="Rock4-alt2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(64, 427)
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("11_7nftj")
+
+[node name="Plastic-bag2" type="Sprite2D" parent="."]
+position = Vector2(21, 434)
+rotation = 0.785397
+scale = Vector2(0.429834, 0.394015)
+texture = ExtResource("18_855e6")
+
+[node name="Ginger-piou2" type="Sprite2D" parent="."]
+position = Vector2(59, 432)
+scale = Vector2(0.34375, 0.34375)
+texture = ExtResource("17_pe3l4")
+
+[node name="Ginger-piou3" type="Sprite2D" parent="."]
+position = Vector2(66, 535)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("17_pe3l4")
+
+[node name="Plastic-bag3" type="Sprite2D" parent="."]
+position = Vector2(61, 623)
+rotation = 2.35619
+scale = Vector2(0.576748, 0.576748)
+texture = ExtResource("18_855e6")
+
+[node name="CanHolder2" type="Sprite2D" parent="."]
+position = Vector2(67, 625)
+rotation = 1.57079
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("11_t3oao")
+
+[editable path="Node2D"]

@@ -8,9 +8,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_jnbb3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, -4, -119, 0, 0, 0, 0, 81, -171)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 81, -171)
 }
-point_count = 3
+point_count = 2
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3mmr2"]
 animations = [{
@@ -28,7 +28,7 @@ animations = [{
 "texture": ExtResource("4_ab8qq")
 }],
 "loop": true,
-"name": &"animated_jellyfish",
+"name": &"animated_default",
 "speed": 1.0
 }]
 
@@ -81,8 +81,8 @@ curve = SubResource("Curve2D_jnbb3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1.28273, -53.7856)
-progress = 54.8338
+position = Vector2(81, -171)
+progress = 189.694
 rotates = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="PathFollow2D"]
@@ -90,8 +90,7 @@ script = ExtResource("1_q4f5g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_3mmr2")
-animation = &"animated_jellyfish"
-frame_progress = 0.0148852
+animation = &"animated_default"
 
 [node name="CollisionShape2D" type="Area2D" parent="PathFollow2D/CharacterBody2D"]
 position = Vector2(0, 6)
@@ -106,6 +105,7 @@ shape = SubResource("RectangleShape2D_0l86y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "animated_jellyfish"
+speed_scale = 0.3
 libraries = {
 "": SubResource("AnimationLibrary_kso03")
 }
