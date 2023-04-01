@@ -7,7 +7,9 @@ extends CharacterBody2D
 @export var stun_duration_multiplier = 0.5
 
 # Instance variables
-@onready var dash_particles: GPUParticles2D = %DashParticles
+@onready var dash_particles_top: GPUParticles2D = %DashParticles
+@onready var dash_particles_bottom: GPUParticles2D = %DashParticles2
+@onready var sprite: AnimatedSprite2D = %Sprite
 
 var collision_particles: PackedScene = preload("res://Particles/collision_particles.tscn")
 
@@ -21,6 +23,8 @@ func _physics_process(delta):
 		remaining_stun_duration -= delta
 		if remaining_stun_duration <= 0:
 			is_stunned = false
+			sprite.play("default")
+	
 	
 	if not is_stunned:
 		if Input.is_action_pressed("rotate_left"):
@@ -44,19 +48,20 @@ func process_movement(delta: float):
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	# If a collision occurs, bounce and stun the player
 	if collision:
+		# Force stop dash
+		stop_dash()
 		# The higher the velocity, the longer the stun
 		stun(collision.get_remainder().length())
 		# Spawn particles
 		spawn_collision_particles()
-		# Force stop dash
-		stop_dash()
 		# Bounce the player
 		velocity = velocity.bounce(collision.get_normal()) * 2
 
 # Stun the player for the specified duration
 func stun(duration):
 	is_stunned = true
-	remaining_stun_duration = duration * stun_duration_multiplier
+	sprite.play("stun")
+	remaining_stun_duration += duration * stun_duration_multiplier
 
 func spawn_collision_particles():
 	var particle_instance = collision_particles.instantiate()
@@ -65,13 +70,17 @@ func spawn_collision_particles():
 
 func start_dash():
 	is_dashing = true
+	sprite.play("dash")
 	current_dash_speed = dash_speed
-	dash_particles.emitting = true
+	dash_particles_top.emitting = true
+	dash_particles_bottom.emitting = true
 
 func stop_dash():
 	is_dashing = false
+	sprite.play("default")
 	current_dash_speed = 0
-	dash_particles.emitting = false
+	dash_particles_top.emitting = false
+	dash_particles_bottom.emitting = false
 
 func process_dash():
 	velocity = transform.x * current_dash_speed

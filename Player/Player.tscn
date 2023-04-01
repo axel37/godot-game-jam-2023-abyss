@@ -1,14 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfyccxlmxpx5r"]
+[gd_scene load_steps=8 format=3 uid="uid://cfyccxlmxpx5r"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_gsv2l"]
-[ext_resource type="Texture2D" uid="uid://iojtam5bpyj4" path="res://Assets/Piou.png" id="1_i6dpd"]
+[ext_resource type="Texture2D" uid="uid://1u56edv2ormv" path="res://Assets/Player/Piou_Dash.png" id="2_46r35"]
+[ext_resource type="Texture2D" uid="uid://iojtam5bpyj4" path="res://Assets/Player/Piou.png" id="3_2ugke"]
+[ext_resource type="Texture2D" uid="uid://bm8afasbth1g5" path="res://Assets/Player/Piou_Stun_4.png" id="4_blg23"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wv1ry"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn6tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_46r35")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2ugke")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_blg23")
+}],
+"loop": true,
+"name": &"stun",
+"speed": 5.0
+}]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ceyh"]
 particle_flag_disable_z = true
 direction = Vector3(-1, 0, 0)
-spread = 90.0
+spread = 10.0
 gravity = Vector3(0, 1, 0)
 initial_velocity_min = 12.0
 initial_velocity_max = 20.0
@@ -27,12 +56,19 @@ script = ExtResource("1_gsv2l")
 position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_wv1ry")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-4, 0)
-texture = ExtResource("1_i6dpd")
+sprite_frames = SubResource("SpriteFrames_nn6tg")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-11, 0)
+position = Vector2(-1, 9)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_8ceyh")
+
+[node name="DashParticles2" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(2, -8)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_8ceyh")
