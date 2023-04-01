@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfatt4nel4wdp"]
+[gd_scene load_steps=15 format=3 uid="uid://cfatt4nel4wdp"]
 
 [ext_resource type="Script" path="res://Level/boiling_water.gd" id="1_ev5dg"]
 [ext_resource type="Script" path="res://Level/HotZone.gd" id="2_fyj0g"]
+[ext_resource type="Texture2D" uid="uid://bmr6861jkshc5" path="res://Assets/Bubbles/Bubble-1-1.png" id="3_7ojy6"]
 
 [sub_resource type="Gradient" id="Gradient_afprb"]
 offsets = PackedFloat32Array(1)
@@ -32,6 +33,31 @@ size = Vector2(320, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ver8s"]
 size = Vector2(320, 60)
+
+[sub_resource type="Gradient" id="Gradient_xb1e3"]
+offsets = PackedFloat32Array(0, 0.0414747, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 0.631373, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j38c5"]
+gradient = SubResource("Gradient_xb1e3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k8o2y"]
+emission_shape = 3
+emission_box_extents = Vector3(155, 180, 0)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 32.0
+initial_velocity_max = 64.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 30.0
+color_ramp = SubResource("GradientTexture1D_j38c5")
+turbulence_enabled = true
+turbulence_noise_strength = 10.0
+turbulence_noise_scale = 1.0
+turbulence_noise_speed = Vector3(0, 10, 0)
 
 [node name="HotWater" type="Area2D"]
 position = Vector2(160, 0)
@@ -80,3 +106,9 @@ script = ExtResource("2_fyj0g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Low"]
 shape = SubResource("RectangleShape2D_ver8s")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_k8o2y")
+texture = ExtResource("3_7ojy6")
+visibility_rect = Rect2(-160, -200, 320, 400)
