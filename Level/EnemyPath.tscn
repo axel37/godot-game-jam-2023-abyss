@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=3 uid="uid://4garci0kdlcq"]
+
+[ext_resource type="Texture2D" uid="uid://cwirxsctipmwd" path="res://Assets/Mobs/Meduse_Mouv_1.png" id="1_o3ifk"]
+[ext_resource type="Script" path="res://Level/PatternJellyfish.gd" id="1_q4f5g"]
+[ext_resource type="Texture2D" uid="uid://dy4l50e830van" path="res://Assets/Mobs/Meduse_Mouv_2.png" id="2_kfo1a"]
+[ext_resource type="Texture2D" uid="uid://c4ugqytghmf4l" path="res://Assets/Mobs/Meduse_Mouv_3.png" id="3_t00qd"]
+[ext_resource type="Texture2D" uid="uid://cmsnhksvq65p8" path="res://Assets/Mobs/Meduse_Mouv_4.png" id="4_ab8qq"]
+
+[sub_resource type="Curve2D" id="Curve2D_jnbb3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, -4, -119)
+}
+point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3mmr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o3ifk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kfo1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t00qd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ab8qq")
+}],
+"loop": true,
+"name": &"animated_jellyfish",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dih7o"]
+size = Vector2(30, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l86y"]
+size = Vector2(26, 10)
+
+[sub_resource type="Animation" id="Animation_05geu"]
+resource_name = "animated_jellyfish"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_i04e3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kso03"]
+_data = {
+"RESET": SubResource("Animation_i04e3"),
+"animated_jellyfish": SubResource("Animation_05geu")
+}
+
+[node name="Node2D" type="Path2D"]
+curve = SubResource("Curve2D_jnbb3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1.28273, -53.7856)
+progress = 54.8338
+rotates = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="PathFollow2D"]
+script = ExtResource("1_q4f5g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_3mmr2")
+animation = &"animated_jellyfish"
+frame_progress = 0.0148852
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_dih7o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_0l86y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "animated_jellyfish"
+libraries = {
+"": SubResource("AnimationLibrary_kso03")
+}
