@@ -1,10 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://xttpbusu1lqf"]
+[gd_scene load_steps=17 format=3 uid="uid://xttpbusu1lqf"]
 
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
 [ext_resource type="Texture2D" uid="uid://da41eslrknavk" path="res://Assets/Terrain/tilemap-background.png" id="2_5h8v4"]
 [ext_resource type="Script" path="res://Level/Camera.gd" id="3_17ded"]
 [ext_resource type="PackedScene" uid="uid://cfatt4nel4wdp" path="res://Level/boiling_water.tscn" id="3_0457n"]
 [ext_resource type="PackedScene" uid="uid://4garci0kdlcq" path="res://Level/EnemyPath.tscn" id="5_1kan5"]
+[ext_resource type="Texture2D" uid="uid://2h6w14sbi2dw" path="res://Assets/Coral/Coral1-burned1.png" id="6_ycax7"]
+[ext_resource type="Texture2D" uid="uid://nx41vmtuun4e" path="res://Assets/Coral/Coral1-burned2.png" id="7_aswcc"]
+[ext_resource type="Texture2D" uid="uid://cgx5mr520dwqr" path="res://Assets/Coral/Coral2-burned2.png" id="8_3h0pi"]
+[ext_resource type="Texture2D" uid="uid://dju05ah073772" path="res://Assets/Coral/Coral2-burned1.png" id="9_1dn3f"]
+[ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral/Coral1.png" id="10_kr6mi"]
+[ext_resource type="Texture2D" uid="uid://cpsffj3m6b01" path="res://Assets/objects/CanHolder.png" id="11_t3oao"]
+[ext_resource type="Texture2D" uid="uid://bh1p8pi3wg2ei" path="res://Assets/objects/CanHolderEmpty.png" id="12_xdc2k"]
+[ext_resource type="Texture2D" uid="uid://c2rw5jstyy77y" path="res://Assets/Coral/Seaweed1.png" id="13_wxr5l"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -116,7 +124,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 262144, 0, 4, 65545, 327680, 1, 131081, 327680, 2, 196617, 327680, 3, 262153, 327680, 4, 327680, 0, 5, 393216, 0, 2, 458752, 0, 3, 524288, 0, 4, 589824, 0, 1, 655360, 0, 2, 720896, 0, 3, 786432, 0, 4, 327689, 327680, 1, 393225, 327680, 2, 458761, 327680, 3, 524297, 327680, 5, 589833, 327680, 1, 655369, 327680, 2, 720905, 327680, 3, 786441, 327680, 4, 851968, 0, 5, 917504, 0, 2, 983040, 0, 3, 1048576, 0, 4, 1114112, 0, 1, 1179648, 0, 5, 1245184, 0, 3, 1310720, 0, 4, 1376256, 0, 1, 1441792, 0, 2, 1507328, 0, 3, 1572864, 0, 4, 1638400, 0, 1, 1703936, 0, 2, 1769472, 0, 5, 1835008, 0, 4, 1900544, 0, 1, 1966080, 0, 2, 2031616, 0, 3, 2097152, 0, 4, 851977, 327680, 1, 917513, 327680, 2, 983049, 327680, 3, 1048585, 327680, 5, 1114121, 327680, 1, 1179657, 327680, 2, 1245193, 327680, 3, 1310729, 327680, 4, 1376265, 327680, 1, 1441801, 327680, 5, 1507337, 327680, 3, 1572873, 327680, 4, 1638409, 327680, 1, 1703945, 327680, 2, 1769481, 327680, 3, 1835017, 327680, 4, 1900553, 327680, 1, 1966089, 327680, 2, 2031625, 327680, 3, 2097161, 327680, 4, 2162688, 0, 5, 2162697, 327680, 5, 2162689, 65536, 5, 2162690, 131072, 5, 2162691, 196608, 5, 2162692, 262144, 5, 2162693, 65536, 5, 2162694, 131072, 5, 2162695, 196608, 5, 2162696, 262144, 5, 851969, 65536, 5, 851970, 131072, 5, 851971, 196608, 5, 851972, 262144, 5, 1048581, 65536, 5, 1048582, 131072, 5, 1048583, 196608, 5, 1048584, 262144, 5, 1179649, 65536, 5, 1179650, 131072, 5, 1179651, 196608, 5, 1179652, 262144, 5, 1638403, 65536, 5, 1638404, 131072, 5, 1638405, 196608, 5, 1638406, 262144, 5, 1048580, 262144, 5, 1048579, 196608, 5, 1048578, 131072, 5, 1179653, 131072, 5, 1179654, 131072, 5, 1769473, 65536, 5, 1769474, 131072, 5, 1769475, 196608, 5, 1769476, 262144, 5, -196608, 0, 1, -131072, 0, 2, -65536, 0, 3, 0, 0, 4, -196599, 327680, 1, -131063, 327680, 2, -65527, 327680, 3, 9, 327680, 4, 1441797, 65536, 5, 1441798, 131072, 5, 1441799, 196608, 5, 1441800, 262144, 5, 1441795, 196608, 5, 1441796, 262144, 5, 1310725, 131072, 5, 1376257, 131072, 5, 1572871, 131072, 5, 1900547, 131072, 5, 1900551, 131072, 5, 2031622, 131072, 5, 2031624, 131072, 5, 327681, 65536, 5, 524296, 262144, 5, 524295, 262144, 5)
 
 [node name="BoilingWater" parent="." instance=ExtResource("3_0457n")]
-position = Vector2(160, -180)
+position = Vector2(159, -182)
 collision_mask = 0
 speed = 30.0
 
@@ -143,3 +151,163 @@ You've reached the abyss"
 
 [node name="Node2D" parent="." instance=ExtResource("5_1kan5")]
 position = Vector2(213, 459)
+
+[node name="Coral1-burned1" type="Sprite2D" parent="."]
+position = Vector2(41, 167)
+texture = ExtResource("6_ycax7")
+
+[node name="Coral1-burned2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(21, 121)
+rotation = 0.523598
+texture = ExtResource("7_aswcc")
+
+[node name="Coral2-burned2" type="Sprite2D" parent="."]
+position = Vector2(18, 166)
+texture = ExtResource("8_3h0pi")
+
+[node name="Coral2-burned1" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(55, 166)
+texture = ExtResource("9_1dn3f")
+
+[node name="Coral1" type="Sprite2D" parent="."]
+position = Vector2(190, 583)
+texture = ExtResource("10_kr6mi")
+
+[node name="CanHolder" type="Sprite2D" parent="."]
+position = Vector2(147, 97)
+rotation = 1.0472
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty" type="Sprite2D" parent="."]
+position = Vector2(228, 97)
+rotation = 2.35619
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty2" type="Sprite2D" parent="."]
+position = Vector2(167, 98)
+rotation = 0.785397
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder2" type="Sprite2D" parent="."]
+position = Vector2(180.596, 96.5959)
+rotation = 3.40339
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty3" type="Sprite2D" parent="."]
+position = Vector2(192, 108)
+rotation = 2.61799
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty4" type="Sprite2D" parent="."]
+position = Vector2(200.596, 97.5959)
+rotation = 3.14159
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder3" type="Sprite2D" parent="."]
+position = Vector2(99, 98)
+rotation = 2.09439
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty5" type="Sprite2D" parent="."]
+position = Vector2(114, 97)
+rotation = 3.40339
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty6" type="Sprite2D" parent="."]
+position = Vector2(128.856, 96.8564)
+rotation = 1.83259
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder4" type="Sprite2D" parent="."]
+position = Vector2(147, 97)
+rotation = 1.0472
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty7" type="Sprite2D" parent="."]
+position = Vector2(244, 106)
+rotation = 2.35619
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty8" type="Sprite2D" parent="."]
+position = Vector2(218, 96)
+rotation = 0.785397
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder5" type="Sprite2D" parent="."]
+position = Vector2(253, 97)
+rotation = 1.0472
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty9" type="Sprite2D" parent="."]
+position = Vector2(265, 107)
+rotation = 2.35619
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty10" type="Sprite2D" parent="."]
+position = Vector2(273, 96)
+rotation = 0.785397
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder6" type="Sprite2D" parent="."]
+position = Vector2(25, 98)
+rotation = -0.523598
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty11" type="Sprite2D" parent="."]
+position = Vector2(37.8564, 105.856)
+rotation = 1.0472
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty12" type="Sprite2D" parent="."]
+position = Vector2(45.8564, 95.8564)
+rotation = 0.785397
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder7" type="Sprite2D" parent="."]
+position = Vector2(58.8564, 94.8564)
+rotation = -1.0472
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty13" type="Sprite2D" parent="."]
+position = Vector2(70.8564, 105.856)
+rotation = 0.261799
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty14" type="Sprite2D" parent="."]
+position = Vector2(78.8564, 95.8564)
+rotation = -1.309
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder8" type="Sprite2D" parent="."]
+position = Vector2(302, 97)
+rotation = 3.92699
+texture = ExtResource("11_t3oao")
+
+[node name="CanHolderEmpty15" type="Sprite2D" parent="."]
+position = Vector2(281, 101)
+rotation = 5.23598
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolderEmpty16" type="Sprite2D" parent="."]
+position = Vector2(289, 87)
+rotation = 3.66519
+texture = ExtResource("12_xdc2k")
+
+[node name="Seaweed1" type="Sprite2D" parent="."]
+position = Vector2(230, 267)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("13_wxr5l")
+
+[node name="Seaweed2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(27, 170)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("13_wxr5l")
+
+[node name="Seaweed3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(64, 171)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("13_wxr5l")
