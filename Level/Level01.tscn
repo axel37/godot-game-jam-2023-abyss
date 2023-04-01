@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://xttpbusu1lqf"]
+[gd_scene load_steps=9 format=3 uid="uid://xttpbusu1lqf"]
 
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
 [ext_resource type="Texture2D" uid="uid://da41eslrknavk" path="res://Assets/Terrain/tilemap-background.png" id="2_5h8v4"]
 [ext_resource type="Script" path="res://Level/Camera.gd" id="3_17ded"]
 [ext_resource type="PackedScene" uid="uid://cfatt4nel4wdp" path="res://Level/boiling_water.tscn" id="3_0457n"]
+[ext_resource type="PackedScene" uid="uid://4garci0kdlcq" path="res://Level/EnemyPath.tscn" id="5_1kan5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -91,6 +92,9 @@ texture_region_size = Vector2i(32, 32)
 1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:5/0/physics_layer_0/angular_velocity = 0.0
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 16, 3.5, -16, 3.5, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_jsoer"]
 tile_size = Vector2i(32, 32)
@@ -134,4 +138,7 @@ offset_top = 1097.0
 offset_right = 185.0
 offset_bottom = 1149.0
 text = "You win
-Good job"
+Have a nice death"
+
+[node name="Node2D" parent="." instance=ExtResource("5_1kan5")]
+position = Vector2(216, 501)
