@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 # Player config
 @export var dash_speed = 200
 @export var swim_speed = 25
@@ -102,11 +104,11 @@ func process_dash():
 
 func add_heat(amount: float):
 	current_heat += amount
-	print("Heat : %d" % current_heat)	
 	if current_heat >= max_heat:
 		die()
 
 func die():
+	died.emit()
 	queue_free()
 
 
