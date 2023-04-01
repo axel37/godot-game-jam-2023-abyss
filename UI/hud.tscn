@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c37lc3fhtcrn2"]
+
+[ext_resource type="Script" path="res://UI/hud.gd" id="1_0xf1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnds6"]
+bg_color = Color(0.159967, 0.169163, 0.30307, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vibb3"]
+bg_color = Color(1, 0.533333, 0.141176, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_0xf1h")
+
+[node name="HeatBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 82.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_lnds6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vibb3")
+step = 1.0
+fill_mode = 3
+metadata/_edit_use_anchors_ = true
