@@ -35,7 +35,7 @@ func process_movement(delta: float):
 		add_child(particle_instance)
 		particle_instance.emitting = true
 		stop_dash()
-		velocity = velocity.bounce(collision.get_normal())
+		velocity = velocity.bounce(collision.get_normal()) * 2
 
 
 func start_dash():
