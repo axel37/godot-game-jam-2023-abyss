@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfatt4nel4wdp"]
+[gd_scene load_steps=11 format=3 uid="uid://cfatt4nel4wdp"]
 
 [ext_resource type="Script" path="res://Level/boiling_water.gd" id="1_ev5dg"]
+[ext_resource type="Script" path="res://Level/HotZone.gd" id="2_fyj0g"]
 
 [sub_resource type="Gradient" id="Gradient_afprb"]
 offsets = PackedFloat32Array(1)
@@ -23,7 +24,16 @@ fill_to = Vector2(0.5, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ar4"]
 size = Vector2(320, 340)
 
-[node name="BoilingWater" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xox7"]
+size = Vector2(320, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bng78"]
+size = Vector2(320, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ver8s"]
+size = Vector2(320, 60)
+
+[node name="HotWater" type="Area2D"]
 position = Vector2(160, 0)
 collision_layer = 0
 collision_mask = 2
@@ -41,3 +51,32 @@ texture = SubResource("GradientTexture2D_8q5qc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -100)
 shape = SubResource("RectangleShape2D_u7ar4")
+
+[node name="Damage_High" type="Area2D" parent="."]
+position = Vector2(0, -130)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_fyj0g")
+heat_multiplier = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_High"]
+shape = SubResource("RectangleShape2D_0xox7")
+
+[node name="Damage_Med" type="Area2D" parent="."]
+position = Vector2(0, 100)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_fyj0g")
+heat_multiplier = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Med"]
+shape = SubResource("RectangleShape2D_bng78")
+
+[node name="Damage_Low" type="Area2D" parent="."]
+position = Vector2(0, 160)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_fyj0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_Low"]
+shape = SubResource("RectangleShape2D_ver8s")

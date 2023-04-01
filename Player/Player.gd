@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var swim_speed = 25
 @export var rotation_speed = 0.1
 @export var stun_duration_multiplier = 0.5
+@export var max_heat: float = 100
+@export var hot_zone_heat_multiplier: float = 6
+@export var cool_down_multiplier: float = 2
 
 # Instance variables
 @onready var dash_particles_top: GPUParticles2D = %DashParticles
@@ -17,14 +20,18 @@ var is_dashing: bool = false
 var current_dash_speed: float = 0
 var is_stunned: bool = false
 var remaining_stun_duration: float = 0
+var current_heat: float = 0
+var is_in_hot_zone: bool = false
 
 func _physics_process(delta):
+	if current_heat > 0:
+		add_heat(-1 * delta * cool_down_multiplier) 
+	
 	if is_stunned:
 		remaining_stun_duration -= delta
 		if remaining_stun_duration <= 0:
 			is_stunned = false
 			sprite.play("default")
-	
 	
 	if not is_stunned:
 		if Input.is_action_pressed("rotate_left"):
@@ -87,3 +94,16 @@ func process_dash():
 	current_dash_speed -= dash_speed / 50
 	if current_dash_speed <= 0:
 		stop_dash()
+
+func add_heat(amount: float):
+	current_heat += amount
+	print("Heat : %d" % current_heat)	
+	if current_heat >= max_heat:
+		die()
+
+func die():
+	queue_free()
+
+
+func _on_heat_detector_in_hotzone(hot_zone: HotZone, delta: float):
+	add_heat(hot_zone.heat_multiplier * hot_zone_heat_multiplier * delta)

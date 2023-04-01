@@ -113,6 +113,7 @@ layer_0/tile_data = PackedInt32Array(65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 26
 
 [node name="BoilingWater" parent="." instance=ExtResource("3_0457n")]
 position = Vector2(160, -180)
+collision_mask = 0
 speed = 30.0
 
 [node name="Camera" type="Camera2D" parent="."]

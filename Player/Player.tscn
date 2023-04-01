@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfyccxlmxpx5r"]
+[gd_scene load_steps=10 format=3 uid="uid://cfyccxlmxpx5r"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_gsv2l"]
 [ext_resource type="Texture2D" uid="uid://1u56edv2ormv" path="res://Assets/Player/Piou_Dash.png" id="2_46r35"]
 [ext_resource type="Texture2D" uid="uid://iojtam5bpyj4" path="res://Assets/Player/Piou.png" id="3_2ugke"]
 [ext_resource type="Texture2D" uid="uid://bm8afasbth1g5" path="res://Assets/Player/Piou_Stun_4.png" id="4_blg23"]
+[ext_resource type="Script" path="res://Player/HeatDetector.gd" id="5_4bwde"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wv1ry"]
 
@@ -46,6 +47,9 @@ orbit_velocity_max = 0.0
 damping_min = 4.0
 damping_max = 8.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgbom"]
+size = Vector2(30, 20)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -72,3 +76,18 @@ unique_name_in_owner = true
 position = Vector2(2, -8)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_8ceyh")
+
+[node name="HeatDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("5_4bwde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeatDetector"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_sgbom")
+
+[connection signal="area_entered" from="HeatDetector" to="HeatDetector" method="_on_area_entered"]
+[connection signal="area_exited" from="HeatDetector" to="HeatDetector" method="_on_area_exited"]
+[connection signal="body_entered" from="HeatDetector" to="HeatDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="HeatDetector" to="HeatDetector" method="_on_body_exited"]
+[connection signal="in_hotzone" from="HeatDetector" to="." method="_on_heat_detector_in_hotzone"]
