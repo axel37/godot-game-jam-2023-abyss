@@ -6,6 +6,9 @@ extends CharacterBody2D
 
 # Instance variables
 @onready var dash_particles: GPUParticles2D = %DashParticles
+
+var collision_particles: PackedScene = preload("res://Particles/collision_particles.tscn")
+
 var is_dashing: bool = false
 var current_dash_speed: float = 0
 
@@ -20,9 +23,19 @@ func _physics_process(delta):
 	
 	if is_dashing:
 		process_dash()
-	move_and_slide()
 	
+	process_movement(delta)
 	velocity *= 0.9
+
+
+func process_movement(delta: float):
+	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	if collision:
+		var particle_instance = collision_particles.instantiate()
+		add_child(particle_instance)
+		particle_instance.emitting = true
+		stop_dash()
+		velocity = velocity.bounce(collision.get_normal())
 
 
 func start_dash():
