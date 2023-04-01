@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbhilgqx5p3jl"]
+
+[ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral1.png" id="1_04c5y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxj80"]
+height = 26.0
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_04c5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_uxj80")

@@ -1,8 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://uq5v8ckw8i73"]
+[gd_scene load_steps=5 format=3 uid="uid://uq5v8ckw8i73"]
 
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
+[ext_resource type="PackedScene" uid="uid://bbhilgqx5p3jl" path="res://corail1.tscn" id="2_670fg"]
+[ext_resource type="Texture2D" uid="uid://d4jyihm6nxppq" path="res://Assets/Wall-left.png" id="3_eb40t"]
+[ext_resource type="PackedScene" uid="uid://b5jowr5b7ow1f" path="res://static_body_2d_2.tscn" id="4_d6prc"]
 
 [node name="Level01" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lb3fp")]
-position = Vector2(267, 94)
+texture_filter = 1
+position = Vector2(161, 108)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_670fg")]
+texture_filter = 1
+position = Vector2(91, 119)
+rotation = 1.31278
+
+[node name="Wall-left2" type="Sprite2D" parent="."]
+position = Vector2(94, 124)
+texture = ExtResource("3_eb40t")
+
+[node name="Wall-left3" type="Sprite2D" parent="."]
+position = Vector2(106, 149)
+rotation = -1.56851
+texture = ExtResource("3_eb40t")
+
+[node name="Wall-left4" type="Sprite2D" parent="."]
+position = Vector2(95, 156)
+texture = ExtResource("3_eb40t")
+
+[node name="Wall-left5" type="Sprite2D" parent="."]
+position = Vector2(170, 149)
+rotation = -1.57989
+texture = ExtResource("3_eb40t")
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_d6prc")]

@@ -4,13 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://iojtam5bpyj4" path="res://Assets/Piou.png" id="1_i6dpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66kq2"]
-size = Vector2(32, 24)
+size = Vector2(29, 20)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_gsv2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_66kq2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

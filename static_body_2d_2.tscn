@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5jowr5b7ow1f"]
+
+[ext_resource type="Texture2D" uid="uid://d4jyihm6nxppq" path="res://Assets/Wall-left.png" id="1_rdhjf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0cia"]
+radius = 8.0
+height = 70.0
+
+[node name="StaticBody2D2" type="StaticBody2D"]
+
+[node name="Wall-left" type="Sprite2D" parent="."]
+position = Vector2(94, 61)
+texture = ExtResource("1_rdhjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(70, 63)
+shape = SubResource("CapsuleShape2D_y0cia")
