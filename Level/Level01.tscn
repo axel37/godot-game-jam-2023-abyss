@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://xttpbusu1lqf"]
+[gd_scene load_steps=7 format=3 uid="uid://xttpbusu1lqf"]
 
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
 [ext_resource type="Texture2D" uid="uid://da41eslrknavk" path="res://Assets/Terrain/tilemap-background.png" id="2_5h8v4"]
+[ext_resource type="Script" path="res://Level/Camera.gd" id="3_17ded"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -100,10 +101,24 @@ sources/0 = SubResource("TileSetAtlasSource_vnejo")
 [node name="Level01" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_lb3fp")]
+unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(161, 108)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jsoer")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 262144, 0, 4, 327680, 0, 5, 9, 327680, 0, 65545, 327680, 1, 131081, 327680, 2, 196617, 327680, 3, 262153, 327680, 4, 327689, 327680, 5, 1, 65536, 0, 327681, 65536, 5, 2, 131072, 0, 327682, 131072, 5, 3, 196608, 0, 327683, 196608, 5, 4, 262144, 0, 327684, 262144, 5, 5, 65536, 0, 327685, 65536, 5, 6, 131072, 0, 327686, 131072, 5, 7, 196608, 0, 327687, 196608, 5, 8, 262144, 0, 327688, 262144, 5)
+layer_0/tile_data = PackedInt32Array(65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 262144, 0, 4, 65545, 327680, 1, 131081, 327680, 2, 196617, 327680, 3, 262153, 327680, 4, 327680, 0, 1, 393216, 0, 2, 458752, 0, 3, 524288, 0, 4, 589824, 0, 1, 655360, 0, 2, 720896, 0, 3, 786432, 0, 4, 327689, 327680, 1, 393225, 327680, 2, 458761, 327680, 3, 524297, 327680, 4, 589833, 327680, 1, 655369, 327680, 2, 720905, 327680, 3, 786441, 327680, 4)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(160, 0)
+limit_left = 0
+limit_right = 320
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_vertical_enabled = true
+drag_top_margin = 0.5
+drag_bottom_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("3_17ded")
