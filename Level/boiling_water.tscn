@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfatt4nel4wdp"]
+
+[ext_resource type="Script" path="res://Level/boiling_water.gd" id="1_ev5dg"]
+
+[sub_resource type="Gradient" id="Gradient_afprb"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.533333, 0.0941176, 0.941176)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aei73"]
+gradient = SubResource("Gradient_afprb")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_k1jrf"]
+colors = PackedColorArray(0.345098, 0.231373, 1, 0, 1, 0.533333, 0.0941176, 0.941176)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8q5qc"]
+gradient = SubResource("Gradient_k1jrf")
+width = 320
+height = 180
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ar4"]
+size = Vector2(320, 150)
+
+[node name="BoilingWater" type="StaticBody2D"]
+position = Vector2(160, 0)
+script = ExtResource("1_ev5dg")
+
+[node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(320, 180)
+texture = SubResource("GradientTexture1D_aei73")
+
+[node name="Gradient" type="Sprite2D" parent="."]
+position = Vector2(0, 180)
+texture = SubResource("GradientTexture2D_8q5qc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_u7ar4")
