@@ -46,6 +46,13 @@ rotate_left={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Items"
+
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.133333, 0.247059, 0.454902, 1)
 textures/canvas_textures/default_texture_filter=0

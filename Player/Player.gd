@@ -14,18 +14,17 @@ func _physics_process(delta):
 		rotate(-rotation_speed)
 	if Input.is_action_pressed("rotate_right"):
 		rotate(rotation_speed)
-
+	
 	if Input.is_action_just_pressed("dash") and not is_dashing:
 		start_dash()
 	
 	if is_dashing:
 		process_dash()
-
-	
 	move_and_slide()
 	
 	velocity *= 0.9
-	
+
+
 func start_dash():
 	is_dashing = true
 	current_dash_speed = dash_speed

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbhilgqx5p3jl"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral1.png" id="1_04c5y"]
+[ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral/Coral1.png" id="1_04c5y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxj80"]
 height = 26.0
