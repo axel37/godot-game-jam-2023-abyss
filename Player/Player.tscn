@@ -1,13 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfyccxlmxpx5r"]
+[gd_scene load_steps=14 format=3 uid="uid://cfyccxlmxpx5r"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_gsv2l"]
 [ext_resource type="Texture2D" uid="uid://1u56edv2ormv" path="res://Assets/Player/Piou_Dash.png" id="2_46r35"]
+[ext_resource type="Script" path="res://Player/SpritePivot.gd" id="2_f482f"]
 [ext_resource type="Texture2D" uid="uid://iojtam5bpyj4" path="res://Assets/Player/Piou.png" id="3_2ugke"]
-[ext_resource type="Texture2D" uid="uid://bm8afasbth1g5" path="res://Assets/Player/Piou_Stun_4.png" id="4_blg23"]
 [ext_resource type="Script" path="res://Player/HeatDetector.gd" id="5_4bwde"]
+[ext_resource type="Texture2D" uid="uid://bxy7xcu82k0xk" path="res://Assets/Player/Stun/Piou_Stun_4.png" id="5_dlnyu"]
 [ext_resource type="Texture2D" uid="uid://q6gstn0g4aul" path="res://Assets/Bubbles/Bubble-2-2.png" id="5_hm7ef"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_wv1ry"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn6tg"]
 animations = [{
@@ -29,12 +28,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_blg23")
+"texture": ExtResource("5_dlnyu")
 }],
-"loop": true,
+"loop": false,
 "name": &"stun",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wv1ry"]
 
 [sub_resource type="Gradient" id="Gradient_lbeus"]
 offsets = PackedFloat32Array(0, 0.502304, 1)
@@ -65,14 +66,18 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_gsv2l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("CircleShape2D_wv1ry")
+[node name="SpritePivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_f482f")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="SpritePivot"]
 unique_name_in_owner = true
 position = Vector2(-4, 0)
 sprite_frames = SubResource("SpriteFrames_nn6tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("CircleShape2D_wv1ry")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
