@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # Player config
 @export var dash_speed = 200
+@export var swim_speed = 25
 @export var rotation_speed = 0.1
 @export var stun_duration_multiplier = 0.5
 
@@ -24,8 +25,10 @@ func _physics_process(delta):
 	if not is_stunned:
 		if Input.is_action_pressed("rotate_left"):
 			rotate(-rotation_speed)
+			velocity = transform.x * swim_speed
 		if Input.is_action_pressed("rotate_right"):
 			rotate(rotation_speed)
+			velocity = transform.x * swim_speed
 		
 		if Input.is_action_just_pressed("dash") and not is_dashing:
 			start_dash()
