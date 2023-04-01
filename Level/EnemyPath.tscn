@@ -8,9 +8,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_jnbb3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, -4, -119)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, -4, -119, 0, 0, 0, 0, 81, -171)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3mmr2"]
 animations = [{
@@ -32,11 +32,26 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dih7o"]
-size = Vector2(30, 20)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ntlf"]
+height = 31.4247
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l86y"]
 size = Vector2(26, 10)
+
+[sub_resource type="Animation" id="Animation_i04e3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_05geu"]
 resource_name = "animated_jellyfish"
@@ -53,21 +68,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_i04e3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kso03"]
@@ -93,9 +93,12 @@ sprite_frames = SubResource("SpriteFrames_3mmr2")
 animation = &"animated_jellyfish"
 frame_progress = 0.0148852
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
+[node name="CollisionShape2D" type="Area2D" parent="PathFollow2D/CharacterBody2D"]
 position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_dih7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D/CollisionShape2D"]
+rotation = 1.57672
+shape = SubResource("CapsuleShape2D_0ntlf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
 position = Vector2(0, -9)
