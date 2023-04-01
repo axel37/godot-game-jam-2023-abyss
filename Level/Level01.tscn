@@ -311,3 +311,10 @@ show_behind_parent = true
 position = Vector2(64, 171)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("13_wxr5l")
+
+[node name="Coral2-burned3" type="Sprite2D" parent="."]
+position = Vector2(219, 585)
+texture = ExtResource("9_1dn3f")
+
+[node name="Node2D2" parent="." instance=ExtResource("5_1kan5")]
+position = Vector2(166, 1062)

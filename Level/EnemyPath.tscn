@@ -8,9 +8,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_jnbb3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, -4, -119)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, -4, -119, 0, 0, 0, 0, 81, -171)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3mmr2"]
 animations = [{
