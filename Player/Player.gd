@@ -62,13 +62,18 @@ func process_movement(delta: float):
 		# Spawn particles
 		spawn_collision_particles()
 		# Bounce the player
-		velocity = velocity.bounce(collision.get_normal()) * 2
+		var bounce: Vector2 = velocity.bounce(collision.get_normal())
+		if bounce.length() < 200:
+			bounce = bounce * 3
+		velocity = bounce
 
 # Stun the player for the specified duration
 func stun(duration):
 	is_stunned = true
 	sprite.play("stun")
 	remaining_stun_duration += duration * stun_duration_multiplier
+	if remaining_stun_duration > 1.5:
+		remaining_stun_duration = 1.5
 
 func spawn_collision_particles():
 	var particle_instance = collision_particles.instantiate()
