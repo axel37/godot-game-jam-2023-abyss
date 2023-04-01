@@ -114,7 +114,7 @@ sources/0 = SubResource("TileSetAtlasSource_vnejo")
 
 [node name="Level01" type="Node2D"]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("1_hmp28")]
+[node name="HUD" parent="." instance=ExtResource("1_hmp28")]
 
 [node name="Player" parent="." instance=ExtResource("1_lb3fp")]
 unique_name_in_owner = true
