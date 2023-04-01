@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://xttpbusu1lqf"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
+[ext_resource type="PackedScene" uid="uid://skwhf7m85dey" path="res://Assets/Terrain/Player/Player.tscn" id="1_lb3fp"]
 [ext_resource type="Texture2D" uid="uid://da41eslrknavk" path="res://Assets/Terrain/tilemap-background.png" id="2_5h8v4"]
+[ext_resource type="PackedScene" uid="uid://sb13y00y6jmh" path="res://Entity/EnemyJellyfish/EnemyJellyfish.tscn" id="3_xj6o3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -107,3 +108,6 @@ position = Vector2(161, 108)
 tile_set = SubResource("TileSet_jsoer")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 262144, 0, 4, 327680, 0, 5, 9, 327680, 0, 65545, 327680, 1, 131081, 327680, 2, 196617, 327680, 3, 262153, 327680, 4, 327689, 327680, 5, 1, 65536, 0, 327681, 65536, 5, 2, 131072, 0, 327682, 131072, 5, 3, 196608, 0, 327683, 196608, 5, 4, 262144, 0, 327684, 262144, 5, 5, 65536, 0, 327685, 65536, 5, 6, 131072, 0, 327686, 131072, 5, 7, 196608, 0, 327687, 196608, 5, 8, 262144, 0, 327688, 262144, 5)
+
+[node name="EnemyJellyfish" parent="." instance=ExtResource("3_xj6o3")]
+position = Vector2(73, 127)

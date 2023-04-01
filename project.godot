@@ -52,6 +52,10 @@ rotate_left={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Items"
 
+[physics]
+
+2d/default_gravity=2.5
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.133333, 0.247059, 0.454902, 1)

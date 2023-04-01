@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://sb13y00y6jmh"]
+
+[ext_resource type="Script" path="res://Entity/EnemyJellyfish/EnemyJellyfish.gd" id="1_8fjng"]
+[ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral/Coral1.png" id="2_r3on1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xupd"]
+
+[sub_resource type="Curve2D" id="Curve2D_eax1g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, 57, 0, 0, 0, 0, 140, 107, 0, 0, 0, 0, 245, 42, 0, 0, 0, 0, 302, 101, 0, 0, 0, 0, 161, 75, 0, 0, 0, 0, 32, 57)
+}
+point_count = 6
+
+[node name="EnemyJellyfish" type="CharacterBody2D"]
+script = ExtResource("1_8fjng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5xupd")
+
+[node name="Mob" type="Sprite2D" parent="."]
+texture = ExtResource("2_r3on1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="."]
+unique_name_in_owner = true
+curve = SubResource("Curve2D_eax1g")
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_timer_timeout"]

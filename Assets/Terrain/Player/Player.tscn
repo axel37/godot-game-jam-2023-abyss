@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfyccxlmxpx5r"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_gsv2l"]
-[ext_resource type="Texture2D" uid="uid://iojtam5bpyj4" path="res://Assets/Piou.png" id="1_i6dpd"]
+[ext_resource type="Script" path="res://Assets/Terrain/Player/Player.gd" id="1_gsv2l"]
+[ext_resource type="Texture2D" uid="uid://iojtam5bpyj4" path="res://Assets/Player/Piou.png" id="2_jxmpb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wv1ry"]
 
@@ -29,7 +29,7 @@ shape = SubResource("CircleShape2D_wv1ry")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4, 0)
-texture = ExtResource("1_i6dpd")
+texture = ExtResource("2_jxmpb")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
