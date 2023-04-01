@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_afprb")
 width = 1
 
 [sub_resource type="Gradient" id="Gradient_k1jrf"]
-colors = PackedColorArray(0.345098, 0.231373, 1, 0, 1, 0.533333, 0.0941176, 0.941176)
+colors = PackedColorArray(0.582056, 0.00311406, 0.883201, 0, 1, 0.533333, 0.0941176, 0.941176)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8q5qc"]
 gradient = SubResource("Gradient_k1jrf")
@@ -21,14 +21,17 @@ fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ar4"]
-size = Vector2(320, 150)
+size = Vector2(320, 340)
 
-[node name="BoilingWater" type="StaticBody2D"]
+[node name="BoilingWater" type="Area2D"]
 position = Vector2(160, 0)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_ev5dg")
 
 [node name="Base" type="Sprite2D" parent="."]
-scale = Vector2(320, 180)
+position = Vector2(0, -90)
+scale = Vector2(320, 360)
 texture = SubResource("GradientTexture1D_aei73")
 
 [node name="Gradient" type="Sprite2D" parent="."]
@@ -36,5 +39,5 @@ position = Vector2(0, 180)
 texture = SubResource("GradientTexture2D_8q5qc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -100)
 shape = SubResource("RectangleShape2D_u7ar4")

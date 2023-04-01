@@ -104,7 +104,7 @@ sources/0 = SubResource("TileSetAtlasSource_vnejo")
 [node name="Player" parent="." instance=ExtResource("1_lb3fp")]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(161, 108)
+position = Vector2(160, 180)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jsoer")
@@ -113,7 +113,7 @@ layer_0/tile_data = PackedInt32Array(65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 26
 
 [node name="BoilingWater" parent="." instance=ExtResource("3_0457n")]
 position = Vector2(160, -180)
-speed = 35.0
+speed = 25.0
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(160, 0)
