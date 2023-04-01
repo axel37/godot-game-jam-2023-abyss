@@ -15,6 +15,7 @@ signal died
 @onready var dash_particles_top: GPUParticles2D = %DashParticles
 @onready var dash_particles_bottom: GPUParticles2D = %DashParticles2
 @onready var sprite: AnimatedSprite2D = %Sprite
+@onready var sprite_pivot: Marker2D = %SpritePivot
 
 var collision_particles: PackedScene = preload("res://Particles/collision_particles.tscn")
 
@@ -73,6 +74,7 @@ func process_movement(delta: float):
 func stun(duration):
 	is_stunned = true
 	sprite.play("stun")
+	sprite_pivot.apply_shake(duration * 8, duration * 12)
 	remaining_stun_duration += duration * stun_duration_multiplier
 	if remaining_stun_duration > 1.5:
 		remaining_stun_duration = 1.5
