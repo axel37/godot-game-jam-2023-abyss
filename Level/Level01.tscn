@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bd5cmkswp4fj4"]
+[gd_scene load_steps=37 format=3 uid="uid://bd5cmkswp4fj4"]
 
 [ext_resource type="PackedScene" uid="uid://c37lc3fhtcrn2" path="res://UI/hud.tscn" id="1_hmp28"]
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://b2f17yuw3fw4l" path="res://Assets/Mobs/tilemap-fishingline.png" id="19_pplle"]
 [ext_resource type="Texture2D" uid="uid://dykimso7ris0t" path="res://Assets/Coral/Coral-3-burned1.png" id="24_fojq8"]
 [ext_resource type="Texture2D" uid="uid://cos2pr4epskcf" path="res://Assets/Coral/Coral-3-burned2.png" id="25_wt4jp"]
+[ext_resource type="PackedScene" uid="uid://dq5meektd2q7g" path="res://Enemies/JellyFish.tscn" id="26_4fuc3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -242,6 +243,12 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_e4ji6"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_6rcxt")
+
+[sub_resource type="Curve2D" id="Curve2D_scooi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 19.6577, 38.3287, 0, 0, 0, 0, 17.6577, -43.6713)
+}
+point_count = 2
 
 [node name="Level01" type="Node2D"]
 
@@ -487,3 +494,15 @@ root_node = NodePath("../../..")
 tile_set = SubResource("TileSet_e4ji6")
 format = 2
 layer_0/tile_data = PackedInt32Array(196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 1, 131073, 0, 0, 65537, 0, 0, 1, 0, 0)
+
+[node name="JellyFish" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("26_4fuc3")]
+position = Vector2(247, 184)
+path_follower = NodePath("../Path2D3/PathFollow2D")
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(227.342, 252.671)
+curve = SubResource("Curve2D_scooi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(19.6577, 38.3287)
+rotation = -1.59518

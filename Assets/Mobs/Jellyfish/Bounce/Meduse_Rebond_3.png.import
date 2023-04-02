@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwirxsctipmwd"
-path="res://.godot/imported/Meduse_Mouv_1.png-d465558526af2d1e919b048a069be66c.ctex"
+uid="uid://gnqpk5wtmtbm"
+path="res://.godot/imported/Meduse_Rebond_3.png-6dd5b17fde937a84006af42e32142002.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mobs/Meduse_Mouv_1.png"
-dest_files=["res://.godot/imported/Meduse_Mouv_1.png-d465558526af2d1e919b048a069be66c.ctex"]
+source_file="res://Assets/Mobs/Jellyfish/Bounce/Meduse_Rebond_3.png"
+dest_files=["res://.godot/imported/Meduse_Rebond_3.png-6dd5b17fde937a84006af42e32142002.ctex"]
 
 [params]
 
