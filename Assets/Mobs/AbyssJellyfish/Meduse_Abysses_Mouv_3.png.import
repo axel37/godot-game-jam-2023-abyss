@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4ugqytghmf4l"
-path="res://.godot/imported/Meduse_Mouv_3.png-75bc446b16d7ad503fb4be5af0ff3c1f.ctex"
+uid="uid://hxwtag0dh3jf"
+path="res://.godot/imported/Meduse_Abysses_Mouv_3.png-e6384e03f80af662ccc07172bae96472.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mobs/Meduse_Mouv_3.png"
-dest_files=["res://.godot/imported/Meduse_Mouv_3.png-75bc446b16d7ad503fb4be5af0ff3c1f.ctex"]
+source_file="res://Assets/Mobs/AbyssJellyfish/Meduse_Abysses_Mouv_3.png"
+dest_files=["res://.godot/imported/Meduse_Abysses_Mouv_3.png-e6384e03f80af662ccc07172bae96472.ctex"]
 
 [params]
 
