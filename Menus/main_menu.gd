@@ -1,5 +1,7 @@
 extends Node2D
 
-func _unhandled_input(event):
-	if event.is_action_pressed("dash"):
-		Global.goto_scene("Level/Level.tscn")
+func _on_play_button_pressed() -> void:
+	Global.goto_scene("Level/Level.tscn")
+
+func _on_leave_button_pressed() -> void:
+	get_tree().quit()
