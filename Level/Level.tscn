@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xttpbusu1lqf"]
+[gd_scene load_steps=17 format=3 uid="uid://xttpbusu1lqf"]
 
 [ext_resource type="PackedScene" uid="uid://c37lc3fhtcrn2" path="res://UI/hud.tscn" id="1_7vjs1"]
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="2_t3b34"]
@@ -10,9 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c2hiw3woum2gq" path="res://level_01.tscn" id="8_r7cjr"]
 [ext_resource type="PackedScene" uid="uid://bqs8x5uvp7v68" path="res://level_02.tscn" id="9_aa0kc"]
 [ext_resource type="PackedScene" uid="uid://cag1y0o54butq" path="res://level_03.tscn" id="10_2rdxf"]
-[ext_resource type="PackedScene" uid="uid://bv7i1abkh7ai7" path="res://level_04.tscn" id="11_1bpwq"]
-[ext_resource type="PackedScene" uid="uid://bk3fgwt8p66gh" path="res://level_05.tscn" id="12_e0q1e"]
-[ext_resource type="PackedScene" uid="uid://dhrsjpt7npcm" path="res://Enemies/Shark.tscn" id="13_8w5uy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -512,12 +509,8 @@ layer_0/tile_data = PackedInt32Array(-1048576, 1, 2, -983040, 1, 3, -917504, 1, 
 [node name="Level02" parent="." instance=ExtResource("9_aa0kc")]
 position = Vector2(0, 1152)
 
-[node name="Level03" parent="." instance=ExtResource("10_2rdxf")]
+[node name="END" parent="." instance=ExtResource("10_2rdxf")]
 position = Vector2(0, 2304)
-
-[node name="Level04" parent="." instance=ExtResource("11_1bpwq")]
-
-[node name="Level05" parent="." instance=ExtResource("12_e0q1e")]
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(75.4818, 243.755)
@@ -526,7 +519,3 @@ curve = SubResource("Curve2D_dns6y")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(-54.4818, 28.2445)
 rotation = -0.0106758
-
-[node name="Shark" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("13_8w5uy")]
-position = Vector2(93, 269)
-path_follower = NodePath("../Path2D/PathFollow2D")
