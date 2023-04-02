@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://cag1y0o54butq"]
 
 [node name="Level03" type="Node2D"]
+
+[node name="Terrain-Level03" type="TileMap" parent="."]
+format = 2
+
+[node name="Borders-Level03" type="TileMap" parent="."]
+format = 2

@@ -507,8 +507,10 @@ layer_0/tile_data = PackedInt32Array(-1048576, 1, 2, -983040, 1, 3, -917504, 1, 
 [node name="Level01" parent="." instance=ExtResource("8_r7cjr")]
 
 [node name="Level02" parent="." instance=ExtResource("9_aa0kc")]
+position = Vector2(0, 1152)
 
 [node name="Level03" parent="." instance=ExtResource("10_2rdxf")]
+position = Vector2(0, 2304)
 
 [node name="Level04" parent="." instance=ExtResource("11_1bpwq")]
 
