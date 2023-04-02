@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://du1r1fw1pvyhf"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://game_over.gd" id="1_wkw7c"]
+[ext_resource type="Script" path="res://Menus/game_over.gd" id="1_wkw7c"]
 
 [sub_resource type="Animation" id="Animation_uxjdt"]
 resource_name = "fade_in"

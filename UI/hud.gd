@@ -16,4 +16,4 @@ func game_over():
 
 # Called by animation
 func game_over_change_scene():
-	Global.goto_scene("game_over.tscn")
+	Global.goto_scene("Menus/game_over.tscn")
