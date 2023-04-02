@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cag1y0o54butq" path="res://level_03.tscn" id="10_2rdxf"]
 [ext_resource type="PackedScene" uid="uid://bv7i1abkh7ai7" path="res://level_04.tscn" id="11_1bpwq"]
 [ext_resource type="PackedScene" uid="uid://bk3fgwt8p66gh" path="res://level_05.tscn" id="12_e0q1e"]
+[ext_resource type="PackedScene" uid="uid://dhrsjpt7npcm" path="res://Enemies/Shark.tscn" id="13_8w5uy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -462,6 +463,12 @@ sources/0 = SubResource("TileSetAtlasSource_vnejo")
 sources/1 = SubResource("TileSetAtlasSource_6mqhl")
 sources/3 = SubResource("TileSetAtlasSource_qs1sa")
 
+[sub_resource type="Curve2D" id="Curve2D_dns6y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -54.4818, 28.2445, 0, 0, 0, 0, 226.518, 25.2445)
+}
+point_count = 2
+
 [node name="Levels" type="Node2D"]
 
 [node name="HUD" parent="." instance=ExtResource("1_7vjs1")]
@@ -511,3 +518,15 @@ position = Vector2(0, 2304)
 [node name="Level04" parent="." instance=ExtResource("11_1bpwq")]
 
 [node name="Level05" parent="." instance=ExtResource("12_e0q1e")]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(75.4818, 243.755)
+curve = SubResource("Curve2D_dns6y")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-54.4818, 28.2445)
+rotation = -0.0106758
+
+[node name="Shark" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("13_8w5uy")]
+position = Vector2(93, 269)
+path_follower = NodePath("../Path2D/PathFollow2D")

@@ -5,11 +5,11 @@ signal died
 # Player config
 @export var dash_speed = 200
 @export var swim_speed = 25
-@export var rotation_speed = 0.1
-@export var stun_duration_multiplier = 0.5
+@export var rotation_speed = 0.06
+@export var stun_duration_multiplier = 0.3
 @export var max_heat: float = 100
 @export var hot_zone_heat_multiplier: float = 6
-@export var cool_down_multiplier: float = 2
+@export var cool_down_multiplier: float = 3
 
 # Instance variables
 @onready var dash_particles_top: GPUParticles2D = %DashParticles
@@ -26,6 +26,7 @@ var remaining_stun_duration: float = 0
 var current_heat: float = 0
 var is_in_hot_zone: bool = false
 var is_dead: bool = false
+var current_rotation_speed_multiplier: float = 1
 
 func _physics_process(delta):
 	# Don't process if we're dead
@@ -43,10 +44,10 @@ func _physics_process(delta):
 
 	if not is_stunned:
 		if Input.is_action_pressed("rotate_left"):
-			rotate(-rotation_speed)
+			rotate(-rotation_speed * current_rotation_speed_multiplier)
 			velocity = transform.x * swim_speed
 		if Input.is_action_pressed("rotate_right"):
-			rotate(rotation_speed)
+			rotate(rotation_speed * current_rotation_speed_multiplier)
 			velocity = transform.x * swim_speed
 
 		if Input.is_action_just_pressed("dash") and not is_dashing:
@@ -77,10 +78,16 @@ func process_movement(delta: float):
 
 # Stun the player for the specified duration
 func stun(duration):
+	var stun_duration = duration * stun_duration_multiplier
+
 	is_stunned = true
+	var tween: Tween = get_tree().create_tween()
+	Engine.time_scale = 0.1
+	tween.tween_property(Engine, 'time_scale', 1, stun_duration / 2)
+
 	sprite.play("stun")
 	sprite_pivot.apply_shake(duration * 8, duration * 12)
-	remaining_stun_duration += duration * stun_duration_multiplier
+	remaining_stun_duration += stun_duration
 	if remaining_stun_duration > 1.5:
 		remaining_stun_duration = 1.5
 
@@ -105,12 +112,14 @@ func stop_dash():
 	is_dashing = false
 	sprite.play("default")
 	current_dash_speed = 0
+	current_rotation_speed_multiplier = 1
 	dash_particles_top.emitting = false
 	dash_particles_bottom.emitting = false
 
 func process_dash():
 	velocity = transform.x * current_dash_speed
 	current_dash_speed -= dash_speed / 50
+	current_rotation_speed_multiplier = clamp(0.02 * current_dash_speed, 1, 2.5)
 	if current_dash_speed <= 0:
 		stop_dash()
 

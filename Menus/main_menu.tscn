@@ -1,38 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyricbvjcmqni"]
+[gd_scene load_steps=10 format=3 uid="uid://dyricbvjcmqni"]
 
 [ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_ow5l8"]
+[ext_resource type="Texture2D" uid="uid://itllpqea61d5" path="res://Assets/UI/Leave-Button.png" id="2_t78md"]
+[ext_resource type="Texture2D" uid="uid://btt3qwkbw8yr1" path="res://Assets/UI/Play-Button.png" id="3_ir3vw"]
+[ext_resource type="Texture2D" uid="uid://d0pxlh2ctswew" path="res://Assets/UI/titre.png" id="4_mmki1"]
 
 [sub_resource type="Animation" id="Animation_igcw7"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Label5:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_tvc3d"]
 resource_name = "default"
 length = 0.5
 loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Label5:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.270588)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xa6rv"]
 _data = {
@@ -40,65 +19,58 @@ _data = {
 "default": SubResource("Animation_tvc3d")
 }
 
+[sub_resource type="InputEventAction" id="InputEventAction_4gigs"]
+action = &"dash"
+
+[sub_resource type="Shortcut" id="Shortcut_iypo6"]
+events = [SubResource("InputEventAction_4gigs")]
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ow5l8")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 17.0
-offset_top = 1.0
-offset_right = 119.0
-offset_bottom = 71.0
-theme_override_colors/font_color = Color(1, 0.713726, 0.603922, 1)
-theme_override_font_sizes/font_size = 48
-text = "Piou"
-
-[node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 138.0
-offset_top = 22.0
-offset_right = 302.0
-offset_bottom = 70.0
-theme_override_font_sizes/font_size = 28
-text = "Le poisson"
-
-[node name="Label3" type="Label" parent="CanvasLayer"]
-offset_left = 141.0
-offset_top = 54.0
-offset_right = 305.0
-offset_bottom = 102.0
-theme_override_colors/font_color = Color(0.560784, 0.705882, 1, 1)
-theme_override_font_sizes/font_size = 18
-text = "d'eau fraîche"
-
-[node name="Label4" type="Label" parent="CanvasLayer"]
-offset_left = 148.0
-offset_top = 80.0
-offset_right = 391.0
-offset_bottom = 132.0
-theme_override_font_sizes/font_size = 10
-text = "devant fuir les eaux bouillantes
-du réchauffement climatique"
-
-[node name="Label5" type="Label" parent="CanvasLayer"]
-offset_left = 14.0
-offset_top = 122.0
-offset_right = 168.0
-offset_bottom = 148.0
-text = "[Espace] pour nager"
-
-[node name="Label6" type="Label" parent="CanvasLayer"]
-offset_left = 27.0
-offset_top = 146.0
-offset_right = 181.0
-offset_bottom = 176.0
-theme_override_colors/font_color = Color(0.560784, 0.705882, 1, 1)
-theme_override_font_sizes/font_size = 8
-text = "Nagez pour démarrer
-Nagez pour survivre"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
 libraries = {
 "": SubResource("AnimationLibrary_xa6rv")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -60.0
+offset_right = 40.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Control" type="Control" parent="CanvasLayer/MainContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Titre" type="Sprite2D" parent="CanvasLayer/MainContainer/Control"]
+position = Vector2(0, 32)
+texture = ExtResource("4_mmki1")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="CanvasLayer/MainContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="TextureButton" parent="CanvasLayer/MainContainer/ButtonsContainer"]
+layout_mode = 2
+shortcut = SubResource("Shortcut_iypo6")
+texture_normal = ExtResource("3_ir3vw")
+
+[node name="LeaveButton" type="TextureButton" parent="CanvasLayer/MainContainer/ButtonsContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_t78md")
+
+[connection signal="pressed" from="CanvasLayer/MainContainer/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainContainer/ButtonsContainer/LeaveButton" to="." method="_on_leave_button_pressed"]
