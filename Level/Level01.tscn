@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://xttpbusu1lqf"]
+[gd_scene load_steps=40 format=3 uid="uid://xttpbusu1lqf"]
 
 [ext_resource type="PackedScene" uid="uid://c37lc3fhtcrn2" path="res://UI/hud.tscn" id="1_hmp28"]
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
@@ -26,6 +26,9 @@
 [ext_resource type="Texture2D" uid="uid://b2f17yuw3fw4l" path="res://Assets/Mobs/tilemap-fishingline.png" id="19_pplle"]
 [ext_resource type="Texture2D" uid="uid://dykimso7ris0t" path="res://Assets/Coral/Coral-3-burned1.png" id="24_fojq8"]
 [ext_resource type="Texture2D" uid="uid://cos2pr4epskcf" path="res://Assets/Coral/Coral-3-burned2.png" id="25_wt4jp"]
+[ext_resource type="Texture2D" uid="uid://p0wi211ovrsy" path="res://Assets/Coral/Coral-3.png" id="27_kksrc"]
+[ext_resource type="Texture2D" uid="uid://bogj1t8asvvxj" path="res://Assets/Coral/Coral2.png" id="28_glgpa"]
+[ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral/Coral1.png" id="29_w4qlk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -267,7 +270,7 @@ layer_0/tile_data = PackedInt32Array(-1114112, 262145, 0, -1048576, 262145, 1, -
 [node name="Terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jsoer")
 format = 2
-layer_0/tile_data = PackedInt32Array(851968, 393217, 3, 917504, 393217, 4, 851969, 458753, 3, 917505, 458753, 4, 851970, 524289, 3, 917506, 524289, 4, 1048579, 393217, 3, 1114115, 393217, 4, 1048580, 458753, 3, 1114116, 458753, 4, 1048581, 393217, 3, 1114117, 393217, 4, 1048582, 458753, 3, 1114118, 458753, 4, 1048583, 524289, 3, 1114119, 524289, 4, 1048578, 327681, 3, 1114114, 327681, 4, 1179655, 327681, 3, 1245191, 327681, 4, 1179656, 393217, 3, 1245192, 393217, 4, 1179657, 458753, 3, 1245193, 458753, 4, 1179648, 655361, 1, 1245184, 655361, 2, 1245185, 720897, 2, 1310721, 720897, 3, 1245186, 524289, 3, 1310722, 524289, 4, 1376260, 327681, 3, 1441796, 327681, 4, 1376261, 393217, 3, 1441797, 393217, 4, 1376262, 458753, 3, 1441798, 458753, 4, 1376263, 524289, 3, 1441799, 524289, 4, 1703944, 458753, 3, 1703945, 393217, 3, 1703942, 720897, 2, 1703943, 393217, 3, 1638404, 720897, 2, 1703940, 720897, 3, 1638405, 655361, 1, 1703941, 655361, 2, 1572867, 655361, 1, 1638403, 655361, 2, 1572866, 327681, 3, 1638402, 327681, 4, 1769478, 720897, 3, 1769479, 393217, 4, 1769480, 458753, 4, 1769481, 393217, 4, 1638400, 655361, 1, 1703936, 655361, 2, 1703937, 720897, 2, 1769473, 720897, 3, 1703938, 655361, 1, 1769474, 655361, 2, 1769475, 720897, 2, 1835011, 720897, 3, 1769476, 655361, 1, 1835012, 655361, 2, 1835013, 720897, 2, 1900549, 720897, 3, 1835015, 524289, 3, 1900551, 524289, 4, 1835014, 458753, 3, 1900550, 458753, 4, 720899, 327681, 4, 720900, 393217, 4, 720901, 458753, 4, 720902, 393217, 4, 720903, 458753, 4, 720904, 393217, 4, 720905, 458753, 4, 655363, 327681, 3, 655364, 393217, 3, 655365, 458753, 3, 655366, 393217, 3, 655367, 458753, 3, 655368, 393217, 3, 655369, 458753, 3)
+layer_0/tile_data = PackedInt32Array(851968, 393217, 3, 917504, 393217, 4, 851969, 458753, 3, 917505, 458753, 4, 851970, 524289, 3, 917506, 524289, 4, 1048579, 393217, 3, 1114115, 393217, 4, 1048580, 458753, 3, 1114116, 458753, 4, 1048581, 393217, 3, 1114117, 393217, 4, 1048582, 458753, 3, 1114118, 458753, 4, 1048583, 524289, 3, 1114119, 524289, 4, 1048578, 327681, 3, 1114114, 327681, 4, 1179655, 327681, 3, 1245191, 327681, 4, 1179656, 393217, 3, 1245192, 393217, 4, 1179657, 458753, 3, 1245193, 458753, 4, 1179648, 655361, 1, 1245184, 655361, 2, 1245185, 720897, 2, 1310721, 720897, 3, 1245186, 524289, 3, 1310722, 524289, 4, 1376260, 327681, 3, 1441796, 327681, 4, 1376261, 393217, 3, 1441797, 393217, 4, 1376262, 458753, 3, 1441798, 458753, 4, 1376263, 524289, 3, 1441799, 524289, 4, 1703944, 458753, 3, 1703945, 393217, 3, 1703942, 720897, 2, 1703943, 393217, 3, 1638404, 720897, 2, 1703940, 720897, 3, 1638405, 655361, 1, 1703941, 655361, 2, 1572867, 655361, 1, 1638403, 655361, 2, 1572866, 327681, 3, 1638402, 327681, 4, 1769478, 720897, 3, 1769479, 393217, 4, 1769480, 458753, 4, 1769481, 393217, 4, 1638400, 655361, 1, 1703936, 655361, 2, 1703937, 720897, 2, 1769473, 720897, 3, 1703938, 655361, 1, 1769474, 655361, 2, 1769475, 720897, 2, 1835011, 720897, 3, 1769476, 655361, 1, 1835012, 655361, 2, 1835013, 720897, 2, 1900549, 720897, 3, 1835015, 524289, 3, 1900551, 524289, 4, 1835014, 458753, 3, 1900550, 458753, 4, 720899, 327681, 4, 720900, 393217, 4, 720901, 458753, 4, 720902, 393217, 4, 720903, 458753, 4, 720904, 393217, 4, 720905, 458753, 4, 655363, 327681, 3, 655364, 393217, 3, 655365, 458753, 3, 655366, 393217, 3, 655367, 458753, 3, 655368, 393217, 3, 655369, 458753, 3, 2031625, 131073, 3, 2031624, 131073, 3, 2097159, 327681, 4, 2031623, 327681, 3, 2097160, 393217, 4, 2097161, 393217, 4, 1900544, 655361, 1, 1966080, 655361, 2, 1966081, 720897, 2, 2031617, 720897, 3, 1966082, 131073, 3, 2031618, 458753, 4, 1966083, 655361, 1, 2031619, 655361, 2, 2031620, 720897, 2, 2031621, 524289, 3, 2097157, 524289, 4, 2097156, 720897, 3)
 
 [node name="BoilingWater" parent="." instance=ExtResource("3_0457n")]
 position = Vector2(159, -182)
@@ -306,6 +309,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-1048576, 1, 2, -983040, 1, 3, -917504, 1, 2, -851968, 1, 3, -786432, 1, 2, -720896, 1, 3, -655360, 1, 2, -589824, 1, 3, -524288, 1, 2, -458752, 1, 3, -393216, 1, 2, -327680, 1, 3, -262144, 1, 2, -196608, 1, 3, -131072, 1, 2, -65536, 1, 3, 0, 1, 2, 65536, 1, 3, 131072, 1, 2, 196608, 1, 3, 262144, 1, 2, 327680, 1, 3, 393216, 1, 2, 458752, 1, 3, 524288, 1, 2, 589824, 1, 3, 655360, 1, 2, 720896, 1, 3, 786432, 1, 2, 851968, 1, 3, 917504, 1, 2, 983040, 1, 3, 1048576, 1, 2, 1114112, 1, 3, 1179648, 1, 2, 1245184, 1, 3, 1310720, 1, 2, 1376256, 1, 3, 1441792, 1, 2, 1507328, 1, 3, 1572864, 1, 2, 1638400, 1, 3, 1703936, 1, 2, 1769472, 1, 3, 1835008, 1, 2, 1900544, 1, 3, 1966080, 1, 2, 2031616, 1, 3, 2097152, 1, 2, 2162688, 1, 2, -1048567, 65537, 0, -983031, 65537, 1, -917495, 65537, 0, -851959, 65537, 1, -786423, 65537, 0, -720887, 65537, 1, -655351, 65537, 0, -589815, 65537, 1, -524279, 65537, 0, -458743, 65537, 1, -393207, 65537, 0, -327671, 65537, 1, -262135, 65537, 0, -196599, 65537, 1, -131063, 65537, 0, -65527, 65537, 1, 9, 65537, 0, 65545, 65537, 1, 131081, 65537, 0, 196617, 65537, 1, 262153, 65537, 0, 327689, 65537, 1, 393225, 65537, 0, 458761, 65537, 1, 524297, 65537, 0, 589833, 65537, 1, 655369, 65537, 0, 720905, 65537, 1, 786441, 65537, 0, 851977, 65537, 1, 917513, 65537, 0, 983049, 65537, 1, 1048585, 65537, 0, 1114121, 65537, 1, 1179657, 65537, 0, 1245193, 65537, 1, 1310729, 65537, 0, 1376265, 65537, 1, 1441801, 65537, 0, 1507337, 65537, 1, 1572873, 65537, 0, 1638409, 65537, 1, 1703945, 65537, 0, 1769481, 65537, 1, 1835017, 65537, 0, 1900553, 65537, 1, 1966089, 65537, 0, 2031625, 65537, 1, 2097161, 65537, 0, 2162697, 65537, 1, 2228224, 1, 2, 2293760, 1, 2, 2228233, 65537, 1, 2359296, 1, 2, 2424832, 1, 2, 2490368, 1, 2, 2621440, 1, 2, 2555904, 1, 2, 2686976, 1, 3, 2752512, 1, 3, 2818048, 1, 3, 2883584, 1, 3, 2949120, 1, 3, 3014656, 1, 3, 3080192, 1, 3, 3145728, 1, 3, 3211264, 1, 3, 3276800, 1, 3, 3342336, 1, 3, 2293769, 65537, 1, 2359305, 65537, 1, 2424841, 65537, 1, 2490377, 65537, 1, 2555913, 65537, 1, 2621449, 65537, 1, 2686985, 65537, 1, 2752521, 65537, 1, 2818057, 65537, 1, 2883593, 65537, 1, 2949129, 65537, 1, 3014665, 65537, 1, 3080201, 65537, 1, 3145737, 65537, 1, 3211273, 65537, 1, 3276809, 65537, 1, 3342345, 65537, 1, 3407881, 65537, 1, 3407872, 1, 3)
 
 [node name="Node2D2" parent="." instance=ExtResource("5_1kan5")]
+visible = false
 position = Vector2(40, 825)
 curve = SubResource("Curve2D_3s07p")
 
@@ -314,8 +318,27 @@ position = Vector2(391, 530)
 curve = SubResource("Curve2D_i3ees")
 
 [node name="Octopus2D3" parent="." instance=ExtResource("14_1yc0s")]
+visible = false
 position = Vector2(324, 792)
 curve = SubResource("Curve2D_7gjvl")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_6hpn1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Path2D/PathFollow2D"]
+root_node = NodePath("../../..")
+
+[node name="TileMap" type="TileMap" parent="Node2D/Path2D/PathFollow2D"]
+tile_set = SubResource("TileSet_e4ji6")
+format = 2
+layer_0/tile_data = PackedInt32Array(196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 1, 131073, 0, 0, 65537, 0, 0, 1, 0, 0)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
 
 [node name="Props" type="Node2D" parent="."]
 
@@ -332,17 +355,12 @@ position = Vector2(95, 517)
 texture = ExtResource("14_r8wiu")
 
 [node name="Coral4" type="Sprite2D" parent="Props"]
-show_behind_parent = true
 position = Vector2(27, 423)
 texture = ExtResource("13_sdtck")
 
-[node name="Rock1-alt3" type="Sprite2D" parent="Props"]
-position = Vector2(32, 420)
-texture = ExtResource("8_xrahl")
-
 [node name="Ginger-piou3" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(210, 533)
+position = Vector2(269, 589)
 rotation = -1.83259
 texture = ExtResource("17_pe3l4")
 
@@ -351,7 +369,7 @@ position = Vector2(185, 517)
 texture = ExtResource("25_wt4jp")
 
 [node name="Coral-3-burned1" type="Sprite2D" parent="Props"]
-position = Vector2(245, 519)
+position = Vector2(240, 519)
 texture = ExtResource("24_fojq8")
 
 [node name="Coral1-burned3" type="Sprite2D" parent="Props"]
@@ -360,7 +378,6 @@ position = Vector2(141, 516)
 texture = ExtResource("10_u3o53")
 
 [node name="Rock3-alt2" type="Sprite2D" parent="Props"]
-show_behind_parent = true
 position = Vector2(165, 517)
 texture = ExtResource("9_1l7op")
 
@@ -370,46 +387,49 @@ texture = ExtResource("8_xrahl")
 
 [node name="Plastic-bag3" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(249, 539)
-rotation = 1.57079
+position = Vector2(157, 522)
+rotation = 0.785397
 texture = ExtResource("18_855e6")
 
 [node name="Rock2-alt" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(125, 521)
+position = Vector2(127, 516)
 texture = ExtResource("13_isj1k")
 
 [node name="CanHolder" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(59, 434)
-rotation = 1.83259
+position = Vector2(73, 430)
+rotation = 1.57079
 texture = ExtResource("11_t3oao")
 
 [node name="Ginger-piou2" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(19, 437)
+position = Vector2(27, 429)
+rotation = 0.785397
 texture = ExtResource("17_pe3l4")
 
 [node name="Plastic-bag2" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(78, 437)
+position = Vector2(82, 430)
+rotation = 2.35619
 texture = ExtResource("18_855e6")
 
 [node name="Ginger-piou" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(263, 338)
-rotation = 0.785397
+position = Vector2(248, 332)
+rotation = 1.0472
 texture = ExtResource("17_pe3l4")
 
 [node name="CanHolderEmpty" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(100, 344)
+position = Vector2(100, 337)
 rotation = -2.8798
 texture = ExtResource("12_xdc2k")
 
 [node name="Plastic-bag" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(204, 334)
+position = Vector2(196, 331)
+rotation = 0.523598
 texture = ExtResource("18_855e6")
 
 [node name="Rock4-alt" type="Sprite2D" parent="Props"]
@@ -419,7 +439,7 @@ texture = ExtResource("11_7nftj")
 
 [node name="Rock3-alt" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(184, 324)
+position = Vector2(183, 323)
 texture = ExtResource("9_1l7op")
 
 [node name="Rock1-alt" type="Sprite2D" parent="Props"]
@@ -428,7 +448,7 @@ texture = ExtResource("8_xrahl")
 
 [node name="Coral4-burned1" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(136, 326)
+position = Vector2(124, 325)
 texture = ExtResource("14_r8wiu")
 
 [node name="Coral2-burned2" type="Sprite2D" parent="Props"]
@@ -454,7 +474,7 @@ texture = ExtResource("25_wt4jp")
 
 [node name="Rock3-alt3" type="Sprite2D" parent="Props"]
 show_behind_parent = true
-position = Vector2(258, 581)
+position = Vector2(262, 581)
 texture = ExtResource("9_1l7op")
 
 [node name="Rock2-alt2" type="Sprite2D" parent="Props"]
@@ -465,17 +485,224 @@ texture = ExtResource("13_isj1k")
 position = Vector2(298, 580)
 texture = ExtResource("12_7m16i")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Rock3-alt4" type="Sprite2D" parent="Props"]
+show_behind_parent = true
+position = Vector2(213, 900)
+texture = ExtResource("9_1l7op")
 
-[node name="Path2D" type="Path2D" parent="Node2D"]
-curve = SubResource("Curve2D_6hpn1")
+[node name="Rock2-alt3" type="Sprite2D" parent="Props"]
+show_behind_parent = true
+position = Vector2(237, 999)
+texture = ExtResource("13_isj1k")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+[node name="Rock4-alt2" type="Sprite2D" parent="Props"]
+position = Vector2(256, 997)
+texture = ExtResource("11_7nftj")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Path2D/PathFollow2D"]
-root_node = NodePath("../../..")
+[node name="Plastic-bag4" type="Sprite2D" parent="Props"]
+show_behind_parent = true
+position = Vector2(244, 1006)
+texture = ExtResource("18_855e6")
 
-[node name="TileMap" type="TileMap" parent="Node2D/Path2D/PathFollow2D"]
-tile_set = SubResource("TileSet_e4ji6")
-format = 2
-layer_0/tile_data = PackedInt32Array(196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 1, 131073, 0, 0, 65537, 0, 0, 1, 0, 0)
+[node name="Coral4-burned4" type="Sprite2D" parent="Props"]
+position = Vector2(53, 609)
+texture = ExtResource("15_ed16y")
+
+[node name="Coral4-burned5" type="Sprite2D" parent="Props"]
+position = Vector2(32, 599)
+texture = ExtResource("14_r8wiu")
+
+[node name="Coral-3" type="Sprite2D" parent="Props"]
+position = Vector2(279, 998)
+texture = ExtResource("27_kksrc")
+
+[node name="Coral2-burned4" type="Sprite2D" parent="Props"]
+position = Vector2(140, 677)
+texture = ExtResource("12_7m16i")
+
+[node name="Coral1-burned4" type="Sprite2D" parent="Props"]
+position = Vector2(257, 687)
+texture = ExtResource("11_hipdu")
+
+[node name="Coral1-burned5" type="Sprite2D" parent="Props"]
+position = Vector2(184, 678)
+texture = ExtResource("10_u3o53")
+
+[node name="Coral-3-burned5" type="Sprite2D" parent="Props"]
+position = Vector2(169, 677)
+texture = ExtResource("25_wt4jp")
+
+[node name="Coral-3-burned6" type="Sprite2D" parent="Props"]
+position = Vector2(25, 594)
+texture = ExtResource("24_fojq8")
+
+[node name="CanHolderEmpty2" type="Sprite2D" parent="Props"]
+show_behind_parent = true
+position = Vector2(63, 621)
+rotation = 1.57079
+texture = ExtResource("12_xdc2k")
+
+[node name="Coral2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(198, 900)
+texture = ExtResource("28_glgpa")
+
+[node name="CanHolderEmpty" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(226, 690)
+rotation = -1.57079
+texture = ExtResource("12_xdc2k")
+
+[node name="CanHolder" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(210, 685)
+rotation = 2.35619
+texture = ExtResource("11_t3oao")
+
+[node name="Ginger-piou" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(148, 686)
+rotation = 1.0472
+texture = ExtResource("17_pe3l4")
+
+[node name="Rock4-alt" type="Sprite2D" parent="."]
+position = Vector2(68, 614)
+texture = ExtResource("11_7nftj")
+
+[node name="Rock2-alt" type="Sprite2D" parent="."]
+position = Vector2(200, 830)
+texture = ExtResource("13_isj1k")
+
+[node name="Rock1-alt" type="Sprite2D" parent="."]
+position = Vector2(156, 805)
+texture = ExtResource("8_xrahl")
+
+[node name="Rock3-alt" type="Sprite2D" parent="."]
+position = Vector2(290, 837)
+texture = ExtResource("9_1l7op")
+
+[node name="Plastic-bag" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(285, 841)
+texture = ExtResource("18_855e6")
+
+[node name="Coral1" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(228, 900)
+texture = ExtResource("29_w4qlk")
+
+[node name="Coral2-burned2" type="Sprite2D" parent="."]
+position = Vector2(64, 836)
+texture = ExtResource("12_7m16i")
+
+[node name="Coral-3-burned2" type="Sprite2D" parent="."]
+position = Vector2(74, 842)
+texture = ExtResource("25_wt4jp")
+
+[node name="Coral2-burned3" type="Sprite2D" parent="."]
+position = Vector2(78, 847)
+texture = ExtResource("12_7m16i")
+
+[node name="Coral2-burned1" type="Sprite2D" parent="."]
+position = Vector2(147, 802)
+texture = ExtResource("13_13ilt")
+
+[node name="CanHolder2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(148, 809)
+rotation = 2.09439
+texture = ExtResource("11_t3oao")
+
+[node name="Coral1-burned2" type="Sprite2D" parent="."]
+position = Vector2(194, 827)
+texture = ExtResource("11_hipdu")
+
+[node name="Coral2-burned4" type="Sprite2D" parent="."]
+position = Vector2(245, 838)
+texture = ExtResource("13_13ilt")
+
+[node name="Coral4-burned1" type="Sprite2D" parent="."]
+position = Vector2(254, 838)
+texture = ExtResource("14_r8wiu")
+
+[node name="Coral-3-burned3" type="Sprite2D" parent="."]
+position = Vector2(66, 780)
+texture = ExtResource("25_wt4jp")
+
+[node name="Coral4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(44, 830)
+texture = ExtResource("13_sdtck")
+
+[node name="Coral1-burned3" type="Sprite2D" parent="."]
+position = Vector2(76, 775)
+texture = ExtResource("11_hipdu")
+
+[node name="Coral1-burned1" type="Sprite2D" parent="."]
+position = Vector2(118, 784)
+texture = ExtResource("10_u3o53")
+
+[node name="Coral4-burned2" type="Sprite2D" parent="."]
+position = Vector2(122, 785)
+texture = ExtResource("14_r8wiu")
+
+[node name="Ginger-piou2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(201, 836)
+texture = ExtResource("17_pe3l4")
+
+[node name="Rock1-alt2" type="Sprite2D" parent="."]
+position = Vector2(82, 773)
+texture = ExtResource("8_xrahl")
+
+[node name="Rock2-alt2" type="Sprite2D" parent="."]
+position = Vector2(57, 836)
+texture = ExtResource("13_isj1k")
+
+[node name="Rock4-alt2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(234, 838)
+texture = ExtResource("11_7nftj")
+
+[node name="Rock2-alt3" type="Sprite2D" parent="."]
+position = Vector2(193, 678)
+texture = ExtResource("13_isj1k")
+
+[node name="Rock1-alt3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(200, 676)
+texture = ExtResource("8_xrahl")
+
+[node name="Rock3-alt2" type="Sprite2D" parent="."]
+position = Vector2(40, 421)
+texture = ExtResource("9_1l7op")
+
+[node name="Rock1-alt4" type="Sprite2D" parent="."]
+position = Vector2(138, 325)
+texture = ExtResource("8_xrahl")
+
+[node name="Rock2-alt4" type="Sprite2D" parent="."]
+position = Vector2(150, 325)
+texture = ExtResource("13_isj1k")
+
+[node name="Rock2-alt5" type="Sprite2D" parent="."]
+position = Vector2(209, 325)
+texture = ExtResource("13_isj1k")
+
+[node name="Rock4-alt3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(120, 868)
+texture = ExtResource("11_7nftj")
+
+[node name="Rock2-alt6" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(107, 863)
+texture = ExtResource("13_isj1k")
+
+[node name="Rock1-alt5" type="Sprite2D" parent="."]
+position = Vector2(193, 900)
+texture = ExtResource("8_xrahl")
+
+[node name="Rock2-alt7" type="Sprite2D" parent="."]
+position = Vector2(234, 901)
+texture = ExtResource("13_isj1k")
