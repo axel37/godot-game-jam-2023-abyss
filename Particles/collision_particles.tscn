@@ -25,4 +25,5 @@ emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_8ceyh")
 one_shot = true
+preprocess = 0.1
 explosiveness = 1.0

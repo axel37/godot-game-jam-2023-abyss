@@ -6,7 +6,7 @@ signal died
 @export var dash_speed = 200
 @export var swim_speed = 25
 @export var rotation_speed = 0.1
-@export var stun_duration_multiplier = 0.5
+@export var stun_duration_multiplier = 0.3
 @export var max_heat: float = 100
 @export var hot_zone_heat_multiplier: float = 6
 @export var cool_down_multiplier: float = 2
@@ -77,10 +77,16 @@ func process_movement(delta: float):
 
 # Stun the player for the specified duration
 func stun(duration):
+	var stun_duration = duration * stun_duration_multiplier
+
 	is_stunned = true
+	var tween: Tween = get_tree().create_tween()
+	Engine.time_scale = 0.1
+	tween.tween_property(Engine, 'time_scale', 1, stun_duration / 2)
+
 	sprite.play("stun")
 	sprite_pivot.apply_shake(duration * 8, duration * 12)
-	remaining_stun_duration += duration * stun_duration_multiplier
+	remaining_stun_duration += stun_duration
 	if remaining_stun_duration > 1.5:
 		remaining_stun_duration = 1.5
 
