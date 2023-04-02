@@ -706,3 +706,16 @@ texture = ExtResource("8_xrahl")
 [node name="Rock2-alt7" type="Sprite2D" parent="."]
 position = Vector2(234, 901)
 texture = ExtResource("13_isj1k")
+
+[node name="Coral-3-burned1" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(157, 887)
+texture = ExtResource("24_fojq8")
+
+[node name="Coral-3-burned4" type="Sprite2D" parent="."]
+position = Vector2(163, 893)
+texture = ExtResource("25_wt4jp")
+
+[node name="Coral5" type="Sprite2D" parent="."]
+position = Vector2(116, 864)
+texture = ExtResource("13_sdtck")
