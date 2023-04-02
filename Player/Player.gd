@@ -9,7 +9,7 @@ signal died
 @export var stun_duration_multiplier = 0.3
 @export var max_heat: float = 100
 @export var hot_zone_heat_multiplier: float = 6
-@export var cool_down_multiplier: float = 2
+@export var cool_down_multiplier: float = 3
 
 # Instance variables
 @onready var dash_particles_top: GPUParticles2D = %DashParticles
@@ -120,7 +120,6 @@ func process_dash():
 	velocity = transform.x * current_dash_speed
 	current_dash_speed -= dash_speed / 50
 	current_rotation_speed_multiplier = clamp(0.02 * current_dash_speed, 1, 2.5)
-	print(current_rotation_speed_multiplier)
 	if current_dash_speed <= 0:
 		stop_dash()
 
