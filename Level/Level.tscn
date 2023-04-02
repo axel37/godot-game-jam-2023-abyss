@@ -473,12 +473,13 @@ point_count = 2
 [node name="Player" parent="." instance=ExtResource("2_t3b34")]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(160, 180)
+position = Vector2(180, 180)
 
 [node name="BoilingWater" parent="." instance=ExtResource("3_lij67")]
 top_level = true
 position = Vector2(160, -180)
 collision_mask = 0
+speed = 30.0
 metadata/_edit_lock_ = true
 
 [node name="Camera" type="Camera2D" parent="."]

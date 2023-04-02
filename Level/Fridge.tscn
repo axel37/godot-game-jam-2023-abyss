@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgp7ufxgqd2hs"]
+
+[ext_resource type="Texture2D" uid="uid://n7se8oqkwsft" path="res://Assets/Fridge/fridge-alt1.png" id="1_ila1j"]
+[ext_resource type="Script" path="res://Level/Fridge.gd" id="1_kud8r"]
+[ext_resource type="Texture2D" uid="uid://djyu0ifqpisb8" path="res://Assets/Fridge/fridge-alt2.png" id="2_lqw6h"]
+[ext_resource type="Texture2D" uid="uid://pyora288nj3y" path="res://Assets/Fridge/fridge-closed.png" id="3_utpa2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqyx7"]
+size = Vector2(96.7389, 47.4563)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3qu5"]
+size = Vector2(63.3363, 14.8995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddghv"]
+size = Vector2(103.76, 30.9698)
+
+[node name="Fridge" type="StaticBody2D"]
+show_behind_parent = true
+script = ExtResource("1_kud8r")
+
+[node name="Fridge-alt1" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, -78)
+texture = ExtResource("1_ila1j")
+
+[node name="Fridge-alt2" type="Sprite2D" parent="."]
+position = Vector2(0, -78)
+texture = ExtResource("2_lqw6h")
+
+[node name="Fridge-closed" type="Sprite2D" parent="."]
+visible = false
+top_level = true
+position = Vector2(0, -78)
+texture = ExtResource("3_utpa2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6.69338, -66.7682)
+rotation = -0.959931
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yqyx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(61.3395, -101.125)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_x3qu5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(35.9889, -41.8345)
+rotation = -0.959931
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ddghv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

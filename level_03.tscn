@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cag1y0o54butq"]
 
 [ext_resource type="Texture2D" uid="uid://c0g5r7ag3ilvt" path="res://Assets/Terrain/tilemap-full.png" id="1_81lv2"]
-[ext_resource type="Texture2D" uid="uid://d1m3ik0efknwd" path="res://Assets/objects/fridge192x160.png" id="2_iwarx"]
+[ext_resource type="PackedScene" uid="uid://dgp7ufxgqd2hs" path="res://Level/Fridge.tscn" id="2_tuctk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e1sfv"]
 
@@ -350,6 +350,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_hl36f")
 sources/2 = SubResource("TileSetAtlasSource_p1edo")
 
 [node name="Level03" type="Node2D"]
+show_behind_parent = true
 
 [node name="Terrain-Level03" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_c3xc3")
@@ -361,6 +362,5 @@ tile_set = SubResource("TileSet_6i6o2")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 2, 8, 65536, 2, 8, 131072, 2, 9, 196608, 2, 8, 262144, 2, 9, 327680, 2, 8, 393216, 2, 9, 458752, 2, 8, 524288, 2, 9, 589824, 2, 8, 655360, 2, 8, 720896, 2, 8, 786432, 2, 9, 851968, 2, 8, 917504, 2, 9, 983040, 2, 8, 9, 65538, 8, 65545, 65538, 9, 131081, 65538, 8, 196617, 65538, 9, 262153, 65538, 8, 327689, 65538, 9, 393225, 65538, 8, 458761, 65538, 9, 524297, 65538, 8, 589833, 65538, 9, 655369, 65538, 8, 720905, 65538, 9, 786441, 65538, 8, 851977, 65538, 9, 917513, 65538, 8, 983049, 65538, 9)
 
-[node name="Fridge192x160" type="Sprite2D" parent="."]
-position = Vector2(160, 411)
-texture = ExtResource("2_iwarx")
+[node name="Fridge" parent="." instance=ExtResource("2_tuctk")]
+position = Vector2(148, 510)
