@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://hxko1xvfc8an"]
+
+[ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_2ednp"]
+[ext_resource type="Texture2D" uid="uid://cwirxsctipmwd" path="res://Assets/Mobs/Meduse_Mouv_1.png" id="1_mljp3"]
+[ext_resource type="Texture2D" uid="uid://dy4l50e830van" path="res://Assets/Mobs/Meduse_Mouv_2.png" id="2_3f3t6"]
+[ext_resource type="Texture2D" uid="uid://c4ugqytghmf4l" path="res://Assets/Mobs/Meduse_Mouv_3.png" id="3_wjtii"]
+[ext_resource type="Texture2D" uid="uid://cmsnhksvq65p8" path="res://Assets/Mobs/Meduse_Mouv_4.png" id="4_qklgc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3mmr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mljp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3f3t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wjtii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qklgc")
+}],
+"loop": true,
+"name": &"animated_default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ntlf"]
+height = 31.4247
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l86y"]
+size = Vector2(26, 10)
+
+[node name="JellyFish" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_2ednp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3mmr2")
+animation = &"animated_default"
+autoplay = "animated_default"
+frame_progress = 0.946585
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.57672
+shape = SubResource("CapsuleShape2D_0ntlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_0l86y")
