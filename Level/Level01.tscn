@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bd5cmkswp4fj4"]
+[gd_scene load_steps=39 format=3 uid="uid://bd5cmkswp4fj4"]
 
 [ext_resource type="PackedScene" uid="uid://c37lc3fhtcrn2" path="res://UI/hud.tscn" id="1_hmp28"]
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dykimso7ris0t" path="res://Assets/Coral/Coral-3-burned1.png" id="24_fojq8"]
 [ext_resource type="Texture2D" uid="uid://cos2pr4epskcf" path="res://Assets/Coral/Coral-3-burned2.png" id="25_wt4jp"]
 [ext_resource type="PackedScene" uid="uid://dq5meektd2q7g" path="res://Enemies/JellyFish.tscn" id="26_4fuc3"]
+[ext_resource type="PackedScene" uid="uid://dtm3f4uxpcmd" path="res://Enemies/AbyssJellyfish.tscn" id="27_i8l1j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xdd8p"]
 
@@ -247,6 +248,12 @@ sources/0 = SubResource("TileSetAtlasSource_6rcxt")
 [sub_resource type="Curve2D" id="Curve2D_scooi"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 19.6577, 38.3287, 0, 0, 0, 0, 17.6577, -43.6713)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_3ioss"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -55.446, 132.663, 0, 0, 0, 0, -56.446, -51.3366)
 }
 point_count = 2
 
@@ -505,3 +512,15 @@ curve = SubResource("Curve2D_scooi")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
 position = Vector2(19.6577, 38.3287)
 rotation = -1.59518
+
+[node name="AbyssJellyfish" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("27_i8l1j")]
+position = Vector2(184, 250)
+path_follower = NodePath("../Path2D4/PathFollow2D")
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2(127.446, 241.337)
+curve = SubResource("Curve2D_3ioss")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(-55.446, 132.663)
+rotation = -1.57623

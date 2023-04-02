@@ -52,7 +52,7 @@ size = Vector2(26, 10)
 [sub_resource type="Gradient" id="Gradient_bpf5c"]
 colors = PackedColorArray(0.823529, 0.866667, 0.0941176, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ucb5"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m06gk"]
 gradient = SubResource("Gradient_bpf5c")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ugaqm"]
@@ -71,14 +71,14 @@ radial_accel_min = -10.0
 radial_accel_max = 10.0
 tangential_accel_min = -10.0
 tangential_accel_max = 10.0
-color_ramp = SubResource("GradientTexture1D_2ucb5")
+color_ramp = SubResource("GradientTexture1D_m06gk")
 
-[sub_resource type="Gradient" id="Gradient_ywkgb"]
+[sub_resource type="Gradient" id="Gradient_81a2c"]
 offsets = PackedFloat32Array(0, 0.793774)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_b0khu"]
-gradient = SubResource("Gradient_ywkgb")
+gradient = SubResource("Gradient_81a2c")
 width = 8
 height = 8
 fill = 1
@@ -88,7 +88,7 @@ fill_to = Vector2(0.5, 0)
 [sub_resource type="Gradient" id="Gradient_q2fjv"]
 colors = PackedColorArray(1, 1, 0.627451, 1, 5.19812e-06, 0.682913, 0.687126, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4n6hs"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_awxbg"]
 gradient = SubResource("Gradient_q2fjv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kru45"]
@@ -98,7 +98,7 @@ particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-color_ramp = SubResource("GradientTexture1D_4n6hs")
+color_ramp = SubResource("GradientTexture1D_awxbg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epsm1"]
 size = Vector2(27, 11)
@@ -129,6 +129,7 @@ shape = SubResource("RectangleShape2D_0l86y")
 [node name="ImpactParticles" type="GPUParticles2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 14)
+emitting = false
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_ugaqm")
 texture = SubResource("GradientTexture2D_b0khu")
