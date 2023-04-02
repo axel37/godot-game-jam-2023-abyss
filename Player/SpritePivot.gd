@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	# Fade out the intensity over time
 	if current_shake_strength > 0:
 		current_shake_strength = lerpf(current_shake_strength, 0, decay_rate * delta)
-		
+
 		position = get_random_offset()
 
 func get_random_offset() -> Vector2:

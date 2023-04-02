@@ -28,14 +28,14 @@ var is_in_hot_zone: bool = false
 
 func _physics_process(delta):
 	if current_heat > 0:
-		add_heat(-1 * delta * cool_down_multiplier) 
-	
+		add_heat(-1 * delta * cool_down_multiplier)
+
 	if is_stunned:
 		remaining_stun_duration -= delta
 		if remaining_stun_duration <= 0:
 			is_stunned = false
 			sprite.play("default")
-	
+
 	if not is_stunned:
 		if Input.is_action_pressed("rotate_left"):
 			rotate(-rotation_speed)
@@ -43,13 +43,13 @@ func _physics_process(delta):
 		if Input.is_action_pressed("rotate_right"):
 			rotate(rotation_speed)
 			velocity = transform.x * swim_speed
-		
+
 		if Input.is_action_just_pressed("dash") and not is_dashing:
 			start_dash()
-	
+
 	if is_dashing:
 		process_dash()
-	
+
 	process_movement(delta)
 	velocity *= 0.9
 
@@ -85,6 +85,11 @@ func spawn_collision_particles():
 	particle_instance.emitting = true
 
 func start_dash():
+	# Stretch sprite
+	sprite_pivot.scale.x = 1.5
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(sprite_pivot, 'scale', Vector2(1,1), 0.5)
+	# Do dash
 	is_dashing = true
 	sprite.play("dash")
 	current_dash_speed = dash_speed
