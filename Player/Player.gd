@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 signal died
 
@@ -25,8 +25,13 @@ var is_stunned: bool = false
 var remaining_stun_duration: float = 0
 var current_heat: float = 0
 var is_in_hot_zone: bool = false
+var is_dead: bool = false
 
 func _physics_process(delta):
+	# Don't process if we're dead
+	if is_dead:
+		return
+
 	if current_heat > 0:
 		add_heat(-1 * delta * cool_down_multiplier)
 
@@ -115,8 +120,8 @@ func add_heat(amount: float):
 		die()
 
 func die():
+	is_dead = true
 	died.emit()
-	queue_free()
 
 
 func _on_heat_detector_in_hotzone(hot_zone: HotZone, delta: float):

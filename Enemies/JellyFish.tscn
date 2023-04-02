@@ -1,0 +1,157 @@
+[gd_scene load_steps=21 format=3 uid="uid://dq5meektd2q7g"]
+
+[ext_resource type="Script" path="res://Enemies/JellyFish.gd" id="1_m3pq8"]
+[ext_resource type="Texture2D" uid="uid://cwirxsctipmwd" path="res://Assets/Mobs/Jellyfish/idle/Meduse_Mouv_1.png" id="2_skjr7"]
+[ext_resource type="Texture2D" uid="uid://dy4l50e830van" path="res://Assets/Mobs/Jellyfish/idle/Meduse_Mouv_2.png" id="3_cpjxl"]
+[ext_resource type="Texture2D" uid="uid://c4ugqytghmf4l" path="res://Assets/Mobs/Jellyfish/idle/Meduse_Mouv_3.png" id="4_2jpsi"]
+[ext_resource type="Texture2D" uid="uid://cmsnhksvq65p8" path="res://Assets/Mobs/Jellyfish/idle/Meduse_Mouv_4.png" id="5_g1x5p"]
+[ext_resource type="Texture2D" uid="uid://c8nnulei65f70" path="res://Assets/Mobs/Jellyfish/Bounce/Meduse_Rebond_4.png" id="6_c4wqj"]
+[ext_resource type="Texture2D" uid="uid://gnqpk5wtmtbm" path="res://Assets/Mobs/Jellyfish/Bounce/Meduse_Rebond_3.png" id="7_2cgvb"]
+[ext_resource type="Texture2D" uid="uid://c8wx7be1itjss" path="res://Assets/Mobs/Jellyfish/Bounce/Meduse_Rebond_2.png" id="8_xpkwe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3mmr2"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("6_c4wqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2cgvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xpkwe")
+}],
+"loop": false,
+"name": &"bounce",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_skjr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cpjxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2jpsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g1x5p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ntlf"]
+height = 31.4247
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l86y"]
+size = Vector2(26, 10)
+
+[sub_resource type="Gradient" id="Gradient_bpf5c"]
+colors = PackedColorArray(0.823529, 0.866667, 0.0941176, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m06gk"]
+gradient = SubResource("Gradient_bpf5c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ugaqm"]
+emission_shape = 1
+emission_sphere_radius = 32.0
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+linear_accel_min = -10.0
+linear_accel_max = 10.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+tangential_accel_min = -10.0
+tangential_accel_max = 10.0
+color_ramp = SubResource("GradientTexture1D_m06gk")
+
+[sub_resource type="Gradient" id="Gradient_81a2c"]
+offsets = PackedFloat32Array(0, 0.793774)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b0khu"]
+gradient = SubResource("Gradient_81a2c")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_q2fjv"]
+colors = PackedColorArray(1, 1, 0.627451, 1, 5.19812e-06, 0.682913, 0.687126, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_awxbg"]
+gradient = SubResource("Gradient_q2fjv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kru45"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 10, 0)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_awxbg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epsm1"]
+size = Vector2(27, 11)
+
+[node name="JellyFish" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_m3pq8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_3mmr2")
+autoplay = "default"
+
+[node name="Tentacles" type="Area2D" parent="."]
+position = Vector2(0, 6)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tentacles"]
+rotation = 1.57672
+shape = SubResource("CapsuleShape2D_0ntlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_0l86y")
+
+[node name="ImpactParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 14)
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_ugaqm")
+texture = SubResource("GradientTexture2D_b0khu")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="IdleParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 7)
+process_material = SubResource("ParticleProcessMaterial_kru45")
+texture = SubResource("GradientTexture2D_b0khu")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_epsm1")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Tentacles" to="." method="_on_tentacles_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

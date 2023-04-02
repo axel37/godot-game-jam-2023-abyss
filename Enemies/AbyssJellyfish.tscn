@@ -1,0 +1,137 @@
+[gd_scene load_steps=19 format=3 uid="uid://dtm3f4uxpcmd"]
+
+[ext_resource type="Script" path="res://Enemies/AbyssJellyfish.gd" id="1_67i0g"]
+[ext_resource type="Texture2D" uid="uid://tan0oxg5vh2t" path="res://Assets/Mobs/AbyssJellyfish/Meduse_Abysses_Mouv_1.png" id="2_584u7"]
+[ext_resource type="Texture2D" uid="uid://b3pwmfyhb8ds1" path="res://Assets/Mobs/AbyssJellyfish/Meduse_Abysses_Mouv_2.png" id="3_02nng"]
+[ext_resource type="Texture2D" uid="uid://hxwtag0dh3jf" path="res://Assets/Mobs/AbyssJellyfish/Meduse_Abysses_Mouv_3.png" id="4_gnody"]
+[ext_resource type="Texture2D" uid="uid://cu40ig4mbaghr" path="res://Assets/Mobs/AbyssJellyfish/Meduse_Abysses_Mouv_4.png" id="5_vo4j6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4tkb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_584u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_02nng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gnody")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vo4j6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6rcm"]
+size = Vector2(15, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy3qs"]
+size = Vector2(55.999, 20.0472)
+
+[sub_resource type="Gradient" id="Gradient_10r7x"]
+colors = PackedColorArray(0.823529, 0.866667, 0.0941176, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ucb5"]
+gradient = SubResource("Gradient_10r7x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hwmjy"]
+emission_shape = 1
+emission_sphere_radius = 32.0
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+linear_accel_min = -10.0
+linear_accel_max = 10.0
+radial_accel_min = -10.0
+radial_accel_max = 10.0
+tangential_accel_min = -10.0
+tangential_accel_max = 10.0
+color_ramp = SubResource("GradientTexture1D_2ucb5")
+
+[sub_resource type="Gradient" id="Gradient_ywkgb"]
+offsets = PackedFloat32Array(0, 0.793774)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3bh7e"]
+gradient = SubResource("Gradient_ywkgb")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_ju6ep"]
+colors = PackedColorArray(1, 1, 0.627451, 1, 5.19812e-06, 0.682913, 0.687126, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ukhaw"]
+gradient = SubResource("Gradient_ju6ep")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c8dyd"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 32, 0)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_ukhaw")
+
+[sub_resource type="Gradient" id="Gradient_wsv58"]
+offsets = PackedFloat32Array(0, 0.793774)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xmndy"]
+gradient = SubResource("Gradient_wsv58")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="AbyssJellyfish" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_67i0g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u4tkb")
+autoplay = "default"
+frame_progress = 0.447659
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_w6rcm")
+
+[node name="Tentacles" type="Area2D" parent="."]
+position = Vector2(0, 6)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tentacles"]
+position = Vector2(0.0355939, -9.99387)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_gy3qs")
+
+[node name="ImpactParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_hwmjy")
+texture = SubResource("GradientTexture2D_3bh7e")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+
+[node name="IdleParticles" type="GPUParticles2D" parent="."]
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_c8dyd")
+texture = SubResource("GradientTexture2D_xmndy")
+
+[connection signal="body_entered" from="Tentacles" to="." method="_on_tentacles_body_entered"]

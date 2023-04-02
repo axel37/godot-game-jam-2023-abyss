@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dbuwrmb6noe5d"]
+[gd_scene load_steps=16 format=3 uid="uid://d1eq3th7oifag"]
 
 [ext_resource type="Texture2D" uid="uid://kjnwt0ctxyb2" path="res://Assets/Mobs/Octopus-anim/Octopus1.png" id="1_80uhc"]
-[ext_resource type="Script" path="res://Level/PatternJellyfish.gd" id="1_gnvk1"]
+[ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_aktgn"]
 [ext_resource type="Texture2D" uid="uid://bxmlwph8xeecg" path="res://Assets/Mobs/Octopus-anim/Octopus2.png" id="2_lwa0q"]
 [ext_resource type="Texture2D" uid="uid://by5u6kaeq6u44" path="res://Assets/Mobs/Octopus-anim/Octopus3.png" id="3_3lpfh"]
 [ext_resource type="Texture2D" uid="uid://d25edrpbh26xm" path="res://Assets/Mobs/Octopus-anim/Octopus4.png" id="4_yf4av"]
@@ -12,8 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dhendkvu3w8pc" path="res://Assets/Mobs/Octopus-anim/Octopus9.png" id="9_g301a"]
 [ext_resource type="Texture2D" uid="uid://chmnrprt8mo3f" path="res://Assets/Mobs/Octopus-anim/Octopus10.png" id="10_pbuxa"]
 [ext_resource type="Texture2D" uid="uid://rgbrk7hjuvm6" path="res://Assets/Mobs/Octopus-anim/Octopus11.png" id="11_tu2b3"]
-
-[sub_resource type="Curve2D" id="Curve2D_8gsu7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1um7"]
 animations = [{
@@ -53,83 +51,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"animated_default",
-"speed": 5.0
+"speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lr87"]
-size = Vector2(30, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhm8r"]
-size = Vector2(30, 24)
+size = Vector2(30, 12)
 
-[sub_resource type="Animation" id="Animation_bsoyj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oo7nn"]
+size = Vector2(16, 11)
 
-[sub_resource type="Animation" id="Animation_3h0ue"]
-resource_name = "animated_octopus"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
+[node name="Octopus" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_aktgn")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r84mm"]
-_data = {
-"RESET": SubResource("Animation_bsoyj"),
-"animated_octopus": SubResource("Animation_3h0ue")
-}
-
-[node name="Octopus2D" type="Path2D"]
-curve = SubResource("Curve2D_8gsu7")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-43, 21)
-rotation = -0.0119162
-progress = 66.0303
-rotates = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="PathFollow2D"]
-script = ExtResource("1_gnvk1")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D/CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r1um7")
 animation = &"animated_default"
+autoplay = "animated_default"
+frame_progress = 0.266058
 
-[node name="Area2D" type="Area2D" parent="PathFollow2D/CharacterBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D/Area2D"]
-position = Vector2(-1, 3)
-shape = SubResource("RectangleShape2D_5lr87")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CharacterBody2D"]
-position = Vector2(-1, 3)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 9)
 shape = SubResource("RectangleShape2D_dhm8r")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "animated_octopus"
-speed_scale = 0.22
-libraries = {
-"": SubResource("AnimationLibrary_r84mm")
-}
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2.5)
+shape = SubResource("RectangleShape2D_oo7nn")
