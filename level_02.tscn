@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bqs8x5uvp7v68"]
+[gd_scene load_steps=35 format=3 uid="uid://bqs8x5uvp7v68"]
 
 [ext_resource type="Texture2D" uid="uid://c0g5r7ag3ilvt" path="res://Assets/Terrain/tilemap-full.png" id="1_20ojp"]
 [ext_resource type="Texture2D" uid="uid://c0n0sb4kv7fyn" path="res://Assets/Rocks/Rock3-Alt4.png" id="2_conk7"]
@@ -18,6 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://yvrtek5pwse2" path="res://Assets/Coral/seaweed-burned5.png" id="16_t00ye"]
 [ext_resource type="Texture2D" uid="uid://boqbbh4jha232" path="res://Assets/Rocks/Rock4-alt.png" id="17_o6qy2"]
 [ext_resource type="Texture2D" uid="uid://cgx5mr520dwqr" path="res://Assets/Coral/Coral2-burned2.png" id="18_poiul"]
+[ext_resource type="PackedScene" uid="uid://dhrsjpt7npcm" path="res://Enemies/Shark.tscn" id="19_lw4th"]
+[ext_resource type="Texture2D" uid="uid://bm5liy1dud3ui" path="res://Assets/Coral/Coral4-burned2.png" id="20_32ype"]
+[ext_resource type="Texture2D" uid="uid://dykimso7ris0t" path="res://Assets/Coral/Coral-3-burned1.png" id="21_w74gh"]
+[ext_resource type="Texture2D" uid="uid://dju05ah073772" path="res://Assets/Coral/Coral2-burned1.png" id="22_gas8n"]
+[ext_resource type="Texture2D" uid="uid://0a7tgv46eqh1" path="res://Assets/Rocks/Rock2-alt.png" id="23_xdjfv"]
+[ext_resource type="Texture2D" uid="uid://c5fgytxt4olp3" path="res://Assets/Rocks/Rock3-Alt3.png" id="24_d1e1y"]
+[ext_resource type="PackedScene" uid="uid://dtm3f4uxpcmd" path="res://Enemies/AbyssJellyfish.tscn" id="25_ptrkb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_61dud"]
 
@@ -413,6 +420,30 @@ physics_layer_0/collision_mask = 0
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_ust1x")
 sources/2 = SubResource("TileSetAtlasSource_p1edo")
 
+[sub_resource type="Curve2D" id="Curve2D_onp5q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 70, 351, 0, 0, 0, 0, 287, 417)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_dvog5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 65, 640, 0, 0, 0, 0, 65, 640, 0, 0, 0, 0, 290, 634)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_tqijw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 77, 1114, 0, 0, 0, 0, 39, 1029, 0, 0, 0, 0, 100, 993, 0, 0, 0, 0, 45, 940, 0, 0, 0, 0, 105, 874, 0, 0, 0, 0, 47, 837)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_q3vnd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 200, 994, 0, 0, 0, 0, 282, 927, 0, 0, 0, 0, 202, 888, 0, 0, 0, 0, 282, 835, 0, 0, 0, 0, 203, 786)
+}
+point_count = 5
+
 [node name="Level02" type="Node2D"]
 metadata/_edit_vertical_guides_ = [0.0]
 metadata/_edit_horizontal_guides_ = []
@@ -420,18 +451,35 @@ metadata/_edit_horizontal_guides_ = []
 [node name="Terrain-Level02" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_q5tni")
 format = 2
-layer_0/tile_data = PackedInt32Array(1, 131074, 0, 65537, 131074, 1, 2, 196610, 0, 65538, 196610, 1, 3, 262146, 0, 65539, 262146, 1, 4, 327682, 0, 65540, 327682, 1, 131081, 393218, 0, 196617, 393218, 1, 131079, 196610, 0, 196615, 196610, 1, 131080, 262146, 0, 196616, 262146, 1, 131078, 131074, 0, 196614, 131074, 1, 262144, 131074, 0, 327680, 131074, 1, 262145, 196610, 0, 327681, 196610, 1, 262146, 458754, 65536, 327682, 458754, 65537, 262147, 393218, 65537, 196611, 393218, 65536, 196612, 327682, 0, 262148, 327682, 1, 262150, 393218, 65538, 327686, 393218, 65539, 262151, 196610, 2, 327687, 196610, 3, 262152, 262146, 2, 327688, 262146, 3, 262153, 327682, 2, 327689, 327682, 3, 327685, 458754, 65538, 393221, 458754, 65539, 327684, 131074, 2, 393220, 131074, 3, 851974, 458754, 2, 917510, 458754, 3, 851975, 262146, 2, 917511, 262146, 3, 851976, 393218, 2, 917512, 393218, 3, 917513, 458754, 2, 786437, 393218, 2, 851973, 393218, 3, 786436, 458754, 2, 851972, 458754, 3, 786435, 393218, 3, 720899, 393218, 2, 983049, 458754, 3, 720898, 131074, 2, 786434, 131074, 3, 589828, 196610, 2, 589829, 262146, 2, 589830, 458754, 8, 655364, 196610, 3, 655365, 262146, 3, 589827, 458754, 2, 655363, 458754, 3, 524290, 393218, 2, 589826, 393218, 3, 524289, 131074, 2, 589825, 131074, 3, 393216, 262146, 0, 393217, 327682, 0, 458752, 262146, 1, 458753, 327682, 1, 655366, 262146, 3, 589831, 327682, 2, 655367, 327682, 3, 1048578, 393218, 7, 1048579, 458754, 7, 1048580, 393218, 7, 1048581, 458754, 7, 1179649, 393218, 8, 1179650, 458754, 8, 458760, 393218, 7, 458761, 458754, 7, 1441801, 393218, 0, 1507337, 393218, 1, 1441800, 458754, 0, 1507336, 458754, 1, 1376263, 393218, 0, 1441799, 393218, 1, 1376262, 458754, 0, 1310725, 393218, 0, 1376261, 393218, 1, 1310723, 131074, 0, 1376259, 131074, 1, 1310724, 196610, 0, 1376260, 196610, 1, 1638400, 393218, 65537, 1572864, 393218, 65536, 1572865, 458754, 65536, 1638401, 458754, 65537, 1572866, 393218, 65537, 1507330, 393218, 65536, 1507331, 262146, 0, 1572867, 262146, 1, 1507332, 327682, 0, 1572868, 327682, 1, 1638405, 393218, 8, 1114114, 393218, 6, 1114115, 393218, 6, 1114116, 393218, 6, 1114117, 393218, 6, 1245185, 393218, 6, 1245186, 393218, 6, 524296, 393218, 6, 524297, 393218, 6, 1703941, 393218, 6, 1703942, 458754, 6, 1638406, 458754, 8, 1835008, 458754, 65538, 1900544, 458754, 65539, 1835009, 393218, 65539, 1769473, 393218, 65538, 1769474, 196610, 2, 1835010, 196610, 3, 1769475, 262146, 2, 1835011, 262146, 3, 1769476, 196610, 2, 1835012, 196610, 3, 1769477, 262146, 2, 1835013, 262146, 3, 1769478, 327682, 2, 1835014, 327682, 3, 1900552, 393218, 8, 1900553, 458754, 8, 1966088, 393218, 6, 1966089, 458754, 6, 1900551, 131074, 2, 1966087, 131074, 3, 2031619, 131074, 2, 2097155, 131074, 3, 2031620, 327682, 2, 2097156, 327682, 3, 2162694, 131074, 2, 2228230, 131074, 3, 2162695, 327682, 2, 2228231, 327682, 3, 2162689, 327682, 2, 2228225, 327682, 3, 2162688, 131074, 2, 2228224, 131074, 3)
+layer_0/tile_data = PackedInt32Array(1, 131074, 0, 65537, 131074, 1, 2, 196610, 0, 65538, 196610, 1, 3, 262146, 0, 65539, 262146, 1, 4, 327682, 0, 65540, 327682, 1, 131081, 393218, 0, 196617, 393218, 1, 131079, 196610, 0, 196615, 196610, 1, 131080, 262146, 0, 196616, 262146, 1, 131078, 131074, 0, 196614, 131074, 1, 262144, 131074, 0, 327680, 131074, 1, 262145, 196610, 0, 327681, 196610, 1, 262146, 458754, 65536, 327682, 458754, 65537, 262147, 393218, 65537, 196611, 393218, 65536, 196612, 327682, 0, 262148, 327682, 1, 262150, 393218, 65538, 327686, 393218, 65539, 262151, 196610, 2, 327687, 196610, 3, 262152, 262146, 2, 327688, 262146, 3, 262153, 327682, 2, 327689, 327682, 3, 327685, 458754, 65538, 393221, 458754, 65539, 327684, 131074, 2, 393220, 131074, 3, 851974, 458754, 2, 917510, 458754, 3, 851975, 262146, 2, 917511, 262146, 3, 851976, 393218, 2, 917512, 393218, 3, 917513, 458754, 2, 786437, 393218, 2, 851973, 393218, 3, 786436, 458754, 2, 851972, 458754, 3, 786435, 393218, 3, 720899, 393218, 2, 983049, 458754, 3, 720898, 131074, 2, 786434, 131074, 3, 589828, 196610, 2, 589829, 262146, 2, 589830, 458754, 8, 655364, 196610, 3, 655365, 262146, 3, 589827, 458754, 2, 655363, 458754, 3, 524290, 393218, 2, 589826, 393218, 3, 524289, 131074, 2, 589825, 131074, 3, 393216, 262146, 0, 393217, 327682, 0, 458752, 262146, 1, 458753, 327682, 1, 655366, 262146, 3, 589831, 327682, 2, 655367, 327682, 3, 1048578, 393218, 7, 1048579, 458754, 7, 1048580, 393218, 7, 1048581, 458754, 7, 1179649, 393218, 8, 1179650, 458754, 8, 458760, 393218, 7, 458761, 458754, 7, 1441801, 393218, 0, 1507337, 393218, 1, 1441800, 458754, 0, 1507336, 458754, 1, 1376263, 393218, 0, 1441799, 393218, 1, 1376262, 458754, 0, 1310725, 393218, 0, 1376261, 393218, 1, 1310723, 131074, 0, 1376259, 131074, 1, 1310724, 196610, 0, 1376260, 196610, 1, 1638400, 393218, 65537, 1572864, 393218, 65536, 1572865, 458754, 65536, 1638401, 458754, 65537, 1572866, 393218, 65537, 1507330, 393218, 65536, 1507331, 262146, 0, 1572867, 262146, 1, 1507332, 327682, 0, 1572868, 327682, 1, 1638405, 393218, 8, 1114114, 393218, 6, 1114115, 393218, 6, 1114116, 393218, 6, 1114117, 393218, 6, 1245185, 393218, 6, 1245186, 393218, 6, 524296, 393218, 6, 524297, 393218, 6, 1703941, 393218, 6, 1703942, 458754, 6, 1638406, 458754, 8, 1835008, 458754, 65538, 1900544, 458754, 65539, 1835009, 393218, 65539, 1769473, 393218, 65538, 1769474, 196610, 2, 1835010, 196610, 3, 1769475, 262146, 2, 1835011, 262146, 3, 1769476, 196610, 2, 1835012, 196610, 3, 1769477, 262146, 2, 1835013, 262146, 3, 1769478, 327682, 2, 1835014, 327682, 3, 1900552, 393218, 8, 1900553, 458754, 8, 1966088, 393218, 6, 1966089, 458754, 6, 1900551, 131074, 2, 1966087, 131074, 3, 2031619, 131074, 2, 2097155, 131074, 3, 2031620, 327682, 2, 2097156, 327682, 3, 2162694, 131074, 2, 2228230, 131074, 3, 2162695, 327682, 2, 2228231, 327682, 3, 2162689, 327682, 2, 2228225, 327682, 3, 2162688, 131074, 2, 2228224, 131074, 3, 1441798, 458754, 1)
 
 [node name="Borders-Level02" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_85law")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 2, 2, 65536, 2, 3, 131072, 2, 4, 196608, 2, 5, 262144, 2, 2, 327680, 2, 3, 393216, 2, 4, 458752, 2, 5, 524288, 2, 2, 589824, 2, 3, 655360, 2, 4, 720896, 2, 5, 786432, 2, 2, 851968, 2, 3, 917504, 2, 4, 983040, 2, 5, 1048576, 2, 2, 1114112, 2, 3, 1179648, 2, 4, 1245184, 2, 5, 1310720, 2, 2, 1376256, 2, 3, 1441792, 2, 4, 1507328, 2, 5, 1572864, 2, 2, 1638400, 2, 3, 1703936, 2, 4, 1769472, 2, 5, 1835008, 2, 2, 1900544, 2, 3, 1966080, 2, 4, 2031616, 2, 5, 2097152, 2, 2, 2162688, 2, 3, 2228224, 2, 4, 2293760, 2, 5, 9, 65538, 2, 65545, 65538, 3, 131081, 65538, 4, 196617, 65538, 5, 262153, 65538, 2, 327689, 65538, 3, 393225, 65538, 4, 458761, 65538, 5, 524297, 65538, 2, 589833, 65538, 3, 655369, 65538, 4, 720905, 65538, 5, 786441, 65538, 2, 851977, 65538, 3, 917513, 65538, 4, 983049, 65538, 5, 1048585, 65538, 2, 1114121, 65538, 3, 1179657, 65538, 4, 1245193, 65538, 5, 1310729, 65538, 2, 1376265, 65538, 3, 1441801, 65538, 4, 1507337, 65538, 5, 1572873, 65538, 2, 1638409, 65538, 3, 1703945, 65538, 4, 1769481, 65538, 5, 1835017, 65538, 2, 1900553, 65538, 3, 1966089, 65538, 4, 2031625, 65538, 5, 2097161, 65538, 2, 2162697, 65538, 3, 2228233, 65538, 4, 2293769, 65538, 5)
 
-[node name="Props-Level02" type="Node2D" parent="."]
+[node name="Shark" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("19_lw4th")]
+position = Vector2(72, 351)
+path_follower = NodePath("../SharkPath01/PathFollow2D")
 
-[node name="Rock3-alt4" type="Sprite2D" parent="Props-Level02"]
-position = Vector2(48, 134)
-texture = ExtResource("2_conk7")
+[node name="SharkPath01" type="Path2D" parent="."]
+curve = SubResource("Curve2D_onp5q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SharkPath01"]
+position = Vector2(70, 351)
+rotation = 0.295257
+
+[node name="Shark2" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("19_lw4th")]
+position = Vector2(64, 639)
+path_follower = NodePath("../SharkPath02/PathFollow2D")
+
+[node name="SharkPath02" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dvog5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SharkPath02"]
+position = Vector2(64.8421, 640.004)
+
+[node name="Props-Level02" type="Node2D" parent="."]
 
 [node name="Rock3-alt2" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(214, 69)
@@ -446,10 +494,6 @@ texture = ExtResource("6_esyn0")
 [node name="Rock1-alt" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(231, 70)
 texture = ExtResource("4_m0cf2")
-
-[node name="Coral4" type="Sprite2D" parent="Props-Level02"]
-position = Vector2(31, 134)
-texture = ExtResource("7_rqq2h")
 
 [node name="Coral1" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(58, 6)
@@ -476,55 +520,150 @@ texture = ExtResource("2_conk7")
 position = Vector2(131, 294)
 texture = ExtResource("10_2viak")
 
-[node name="Seaweed-burned6" type="Sprite2D" parent="."]
+[node name="Rock3-alt4" type="Sprite2D" parent="Props-Level02"]
+position = Vector2(48, 134)
+texture = ExtResource("2_conk7")
+
+[node name="Coral4" type="Sprite2D" parent="Props-Level02"]
+position = Vector2(31, 134)
+texture = ExtResource("7_rqq2h")
+
+[node name="Seaweed-burned6" type="Sprite2D" parent="Props-Level02"]
 show_behind_parent = true
 position = Vector2(87, 229)
 texture = ExtResource("10_spdut")
 flip_h = true
 
-[node name="Seaweed-burned" type="Sprite2D" parent="."]
+[node name="Seaweed-burned" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(167, 294)
 texture = ExtResource("11_7p4j1")
 
-[node name="Rock3-alt4" type="Sprite2D" parent="."]
+[node name="Rock3-alt6" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(234, 420)
 texture = ExtResource("2_conk7")
 flip_h = true
 
-[node name="Seaweed-burned2" type="Sprite2D" parent="."]
+[node name="Seaweed-burned2" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(213, 417)
 texture = ExtResource("12_ncmon")
 
-[node name="Coral4-burned1" type="Sprite2D" parent="."]
+[node name="Coral4-burned1" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(276, 433)
 texture = ExtResource("13_56pxr")
 
-[node name="Coral1-burned2" type="Sprite2D" parent="."]
+[node name="Coral1-burned2" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(72, 361)
 texture = ExtResource("14_ysfj3")
 
-[node name="Coral2" type="Sprite2D" parent="."]
+[node name="Coral2" type="Sprite2D" parent="Props-Level02"]
 show_behind_parent = true
 position = Vector2(69, 520)
 texture = ExtResource("15_t6uw1")
 
-[node name="Seaweed-burned5" type="Sprite2D" parent="."]
+[node name="Seaweed-burned5" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(81, 470)
 texture = ExtResource("16_t00ye")
 
-[node name="Rock4-alt" type="Sprite2D" parent="."]
+[node name="Rock4-alt" type="Sprite2D" parent="Props-Level02"]
 show_behind_parent = true
 position = Vector2(100, 519)
 texture = ExtResource("17_o6qy2")
 
-[node name="Coral2-burned2" type="Sprite2D" parent="."]
+[node name="Coral2-burned2" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(171, 516)
 texture = ExtResource("18_poiul")
 
-[node name="Coral1-burned1" type="Sprite2D" parent="."]
+[node name="Coral1-burned3" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(113, 515)
 texture = ExtResource("10_2viak")
 
-[node name="Seaweed-burned3" type="Sprite2D" parent="."]
+[node name="Seaweed-burned3" type="Sprite2D" parent="Props-Level02"]
 position = Vector2(41, 582)
 texture = ExtResource("11_7p4j1")
+
+[node name="Seaweed-burned" type="Sprite2D" parent="."]
+position = Vector2(146, 519)
+texture = ExtResource("11_7p4j1")
+
+[node name="Coral4-burned2" type="Sprite2D" parent="."]
+position = Vector2(127, 517)
+texture = ExtResource("20_32ype")
+
+[node name="Coral2" type="Sprite2D" parent="."]
+position = Vector2(281, 709)
+texture = ExtResource("15_t6uw1")
+
+[node name="Coral-3-burned1" type="Sprite2D" parent="."]
+position = Vector2(297, 713)
+texture = ExtResource("21_w74gh")
+
+[node name="Coral2-burned1" type="Sprite2D" parent="."]
+position = Vector2(174, 656)
+texture = ExtResource("22_gas8n")
+
+[node name="Coral1" type="Sprite2D" parent="."]
+position = Vector2(188, 660)
+texture = ExtResource("8_u5hrc")
+
+[node name="Coral4-burned1" type="Sprite2D" parent="."]
+position = Vector2(213, 673)
+texture = ExtResource("13_56pxr")
+
+[node name="Coral1-burned1" type="Sprite2D" parent="."]
+position = Vector2(246, 688)
+texture = ExtResource("10_2viak")
+
+[node name="Rock3-alt4" type="Sprite2D" parent="."]
+position = Vector2(134, 648)
+texture = ExtResource("2_conk7")
+
+[node name="Rock2-alt" type="Sprite2D" parent="."]
+position = Vector2(264, 703)
+texture = ExtResource("23_xdjfv")
+
+[node name="Rock4-alt" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(281, 710)
+rotation = 0.261799
+texture = ExtResource("17_o6qy2")
+
+[node name="Rock2-alt2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(220, 677)
+texture = ExtResource("23_xdjfv")
+
+[node name="Rock3-alt3" type="Sprite2D" parent="."]
+position = Vector2(69, 582)
+texture = ExtResource("24_d1e1y")
+flip_h = true
+
+[node name="Seaweed-burned2" type="Sprite2D" parent="."]
+position = Vector2(114, 647)
+texture = ExtResource("11_7p4j1")
+
+[node name="Seaweed-burned5" type="Sprite2D" parent="."]
+position = Vector2(35, 726)
+texture = ExtResource("16_t00ye")
+flip_h = true
+
+[node name="AbyssJellyfish" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("25_ptrkb")]
+position = Vector2(77, 1114)
+path_follower = NodePath("../PathAbyssJellyfish/PathFollow2D")
+
+[node name="PathAbyssJellyfish" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tqijw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathAbyssJellyfish"]
+position = Vector2(77, 1114)
+rotation = -1.9912
+
+[node name="AbyssJellyfish2" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("25_ptrkb")]
+position = Vector2(201, 994)
+path_follower = NodePath("../PathAbyssJellyfish02/PathFollow2D")
+
+[node name="PathAbyssJellyfish02" type="Path2D" parent="."]
+curve = SubResource("Curve2D_q3vnd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathAbyssJellyfish02"]
+position = Vector2(200, 994)
+rotation = -0.685065

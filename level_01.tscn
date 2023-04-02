@@ -1,8 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://c2hiw3woum2gq"]
+[gd_scene load_steps=34 format=3 uid="uid://c2hiw3woum2gq"]
 
 [ext_resource type="Texture2D" uid="uid://c0g5r7ag3ilvt" path="res://Assets/Terrain/tilemap-full.png" id="3_edj4p"]
 [ext_resource type="Texture2D" uid="uid://dju05ah073772" path="res://Assets/Coral/Coral2-burned1.png" id="3_hj1r2"]
-[ext_resource type="Texture2D" uid="uid://b2f17yuw3fw4l" path="res://Assets/Mobs/tilemap-fishingline.png" id="4_8nw62"]
 [ext_resource type="Texture2D" uid="uid://bm5liy1dud3ui" path="res://Assets/Coral/Coral4-burned2.png" id="4_sb8pp"]
 [ext_resource type="Texture2D" uid="uid://h0m0iia2tuio" path="res://Assets/Coral/Coral4-burned1.png" id="5_f7c8r"]
 [ext_resource type="Texture2D" uid="uid://3xp0yeydcd8i" path="res://Assets/Coral/Coral4.png" id="6_167wd"]
@@ -24,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral/Coral1.png" id="22_tev4t"]
 [ext_resource type="PackedScene" uid="uid://dq5meektd2q7g" path="res://Enemies/JellyFish.tscn" id="23_25q1t"]
 [ext_resource type="PackedScene" uid="uid://d1eq3th7oifag" path="res://Enemies/Octopus.tscn" id="24_rrb3u"]
+[ext_resource type="PackedScene" uid="uid://fhi8wevmv1ix" path="res://Enemies/Ray.tscn" id="25_18d0r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s34wv"]
 
@@ -362,18 +362,6 @@ physics_layer_0/collision_mask = 0
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_s34wv")
 sources/2 = SubResource("TileSetAtlasSource_p1edo")
 
-[sub_resource type="Curve2D" id="Curve2D_6hpn1"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6rcxt"]
-texture = ExtResource("4_8nw62")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_e4ji6"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_6rcxt")
-
 [sub_resource type="Curve2D" id="Curve2D_2xy2o"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 158, 454, 0, 0, 0, 0, 156, 410, 0, 0, 0, 0, 108, 405, 0, 0, 0, 0, 50, 385, 0, 0, 0, 0, 46, 328, 0, 0, 0, 0, 113, 348, 0, 0, 0, 0, 186, 360)
@@ -394,9 +382,21 @@ point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_wbh3l"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 238, 906, 0, 0, 0, 0, 222, 886, 0, 0, 0, 0, 200, 887, 0, 0, 0, 0, 172, 888, 0, 0, 0, 0, 154, 843, 0, 0, 0, 0, 97, 821, 0, 0, 0, 0, 54, 799, 0, 0, 0, 0, 19, 823, 0, 0, 0, 0, 33, 943, 0, 0, 0, 0, 96, 966, 0, 0, 0, 0, 155, 998, 0, 0, 0, 0, 197, 969, 0, 0, 0, 0, 303, 993, 0, 0, 0, 0, 240, 906)
+"points": PackedVector2Array(0, 0, 0, 0, 84, 938, 0, 0, 0, 0, 250, 974)
 }
-point_count = 14
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_0l61n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 91, 1126, 0, 0, 0, 0, 274, 1133)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5snap"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 81, 496, 0, 0, 0, 0, 268, 473)
+}
+point_count = 2
 
 [node name="Level01" type="Node2D"]
 
@@ -844,25 +844,6 @@ position = Vector2(92, 868)
 rotation = 2.09439
 texture = ExtResource("15_8to5p")
 
-[node name="FishingLane" type="Node2D" parent="."]
-
-[node name="Path2D" type="Path2D" parent="FishingLane"]
-curve = SubResource("Curve2D_6hpn1")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="FishingLane/Path2D"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FishingLane/Path2D/PathFollow2D"]
-root_node = NodePath("../../..")
-
-[node name="TileMap" type="TileMap" parent="FishingLane/Path2D/PathFollow2D"]
-tile_set = SubResource("TileSet_e4ji6")
-format = 2
-layer_0/tile_data = PackedInt32Array(196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 1, 131073, 0, 0, 65537, 0, 0, 1, 0, 0)
-
-[node name="16852" type="Timer" parent="FishingLane/Path2D/PathFollow2D"]
-wait_time = 0.2
-one_shot = true
-
 [node name="JellyFish" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("23_25q1t")]
 position = Vector2(158, 454)
 path_follower = NodePath("../PathJellyfish01/PathFollow2D")
@@ -896,13 +877,35 @@ curve = SubResource("Curve2D_w3lnx")
 position = Vector2(54, 740)
 rotation = 0.235196
 
-[node name="Octopus2" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("24_rrb3u")]
-position = Vector2(238, 906)
-path_follower = NodePath("../PathOctopus02/PathFollow2D")
+[node name="Ray" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("25_18d0r")]
+position = Vector2(83, 941)
+path_follower = NodePath("../PathRay01/PathFollow2D")
 
-[node name="PathOctopus02" type="Path2D" parent="."]
+[node name="PathRay01" type="Path2D" parent="."]
 curve = SubResource("Curve2D_wbh3l")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PathOctopus02"]
-position = Vector2(238, 906)
-rotation = -2.24554
+[node name="PathFollow2D" type="PathFollow2D" parent="PathRay01"]
+position = Vector2(84, 938)
+rotation = 0.21356
+
+[node name="Ray2" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("25_18d0r")]
+position = Vector2(90, 1127)
+path_follower = NodePath("../PathRay02/PathFollow2D")
+
+[node name="PathRay02" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0l61n")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathRay02"]
+position = Vector2(91, 1126)
+rotation = 0.0382327
+
+[node name="Ray3" parent="." node_paths=PackedStringArray("path_follower") instance=ExtResource("25_18d0r")]
+position = Vector2(80, 496)
+path_follower = NodePath("../PathRay03/PathFollow2D")
+
+[node name="PathRay03" type="Path2D" parent="."]
+curve = SubResource("Curve2D_5snap")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathRay03"]
+position = Vector2(81, 496)
+rotation = -0.12238
