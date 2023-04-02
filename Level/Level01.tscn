@@ -220,42 +220,34 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_xdd8p")
 sources/0 = SubResource("TileSetAtlasSource_vnejo")
 sources/1 = SubResource("TileSetAtlasSource_6mqhl")
 
-[sub_resource type="Curve2D" id="Curve2D_syihj"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 148, 62, 0, 0, 0, 0, -2, -38, 0, 0, 0, 0, -4, -119, 0, 0, 0, 0, 111, -143)
-}
-point_count = 4
-
 [sub_resource type="Curve2D" id="Curve2D_3s07p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 13, 3, 0, 0, 0, 0, 0, -67, 0, 0, 0, 0, 36, -110, 0, 0, 0, 0, 186, -24)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -17, 0, 0, 0, 0, 1, -67, 0, 0, 0, 0, 36, -110, 0, 0, 0, 0, 193, -21)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_i3ees"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -115, 62, 0, 0, 0, 0, -123, 50, 0, 0, 0, 0, -129, 31, 0, 0, 0, 0, -122, 15, 0, 0, 0, 0, -125, -4, 0, 0, 0, 0, -132, -10, 0, 0, 0, 0, -151, -11, 0, 0, 0, 0, -162, -9, 0, 0, 0, 0, -177, -11, 0, 0, 0, 0, -190, -11, 0, 0, 0, 0, -201, -8, 0, 0, 0, 0, -217, -8, 0, 0, 0, 0, -229, -8, 0, 0, 0, 0, -247, -9, 0, 0, 0, 0, -262, -10, 0, 0, 0, 0, -279, -9, 0, 0, 0, 0, -298, -8, 0, 0, 0, 0, -311, -10, 0, 0, 0, 0, -323, -6, 0, 0, 0, 0, -334, 8, 0, 0, 0, 0, -337, 20, 0, 0, 0, 0, -341, 34, 0, 0, 0, 0, -348, 48, 0, 0, 0, 0, -358, 54, 0, 0, 0, 0, -365, 66, 0, 0, 0, 0, -355, 79, 0, 0, 0, 0, -347, 86)
-}
-point_count = 27
-
-[sub_resource type="Curve2D" id="Curve2D_7gjvl"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -25, 52, 0, 0, 0, 0, -112, 49, 0, 0, 0, 0, -126, 43, 0, 0, 0, 0, -139, 37, 0, 0, 0, 0, -147, 29, 0, 0, 0, 0, -162, 23, 0, 0, 0, 0, -177, 18, 0, 0, 0, 0, -194, 11, 0, 0, 0, 0, -206, 3, 0, 0, 0, 0, -217, -4, 0, 0, 0, 0, -225, -10, 0, 0, 0, 0, -242, -10, 0, 0, 0, 0, -253, -10, 0, 0, 0, 0, -260, -6)
+"points": PackedVector2Array(0, 0, 0, 0, -112, 53, 0, 0, 0, 0, -119, 28, 0, 0, 0, 0, -116, -3, 0, 0, 0, 0, -152, -4, 0, 0, 0, 0, -176, -11, 0, 0, 0, 0, -201, -13, 0, 0, 0, 0, -230, -28, 0, 0, 0, 0, -273, -10, 0, 0, 0, 0, -323, -12, 0, 0, 0, 0, -351, 10, 0, 0, 0, 0, -341, 48, 0, 0, 0, 0, -293, 53, 0, 0, 0, 0, -253, 58, 0, 0, 0, 0, -164, 60)
 }
 point_count = 14
 
+[sub_resource type="Curve2D" id="Curve2D_7gjvl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -25, 52, 0, 0, 0, 0, -67, 53, 0, 0, 0, 0, -124, 45, 0, 0, 0, 0, -148, 24, 0, 0, 0, 0, -182, 12, 0, 0, 0, 0, -220, -12, 0, 0, 0, 0, -260, -13)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_6hpn1"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6rcxt"]
 texture = ExtResource("19_pplle")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-1:1/0 = 0
-1:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_e4ji6"]
+tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_6rcxt")
 
 [node name="Level01" type="Node2D"]
@@ -275,7 +267,7 @@ layer_0/tile_data = PackedInt32Array(-1114112, 262145, 0, -1048576, 262145, 1, -
 [node name="Terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jsoer")
 format = 2
-layer_0/tile_data = PackedInt32Array(655368, 393217, 3, 720904, 393217, 4, 655369, 458753, 3, 720905, 458753, 4, 655366, 393217, 3, 720902, 393217, 4, 655367, 458753, 3, 720903, 458753, 4, 655364, 393217, 3, 720900, 393217, 4, 655365, 458753, 3, 720901, 458753, 4, 655363, 327681, 3, 720899, 327681, 4, 851968, 393217, 3, 917504, 393217, 4, 851969, 458753, 3, 917505, 458753, 4, 851970, 524289, 3, 917506, 524289, 4, 1048579, 393217, 3, 1114115, 393217, 4, 1048580, 458753, 3, 1114116, 458753, 4, 1048581, 393217, 3, 1114117, 393217, 4, 1048582, 458753, 3, 1114118, 458753, 4, 1048583, 524289, 3, 1114119, 524289, 4, 1048578, 327681, 3, 1114114, 327681, 4, 1179655, 327681, 3, 1245191, 327681, 4, 1179656, 393217, 3, 1245192, 393217, 4, 1179657, 458753, 3, 1245193, 458753, 4, 1179648, 655361, 1, 1245184, 655361, 2, 1245185, 720897, 2, 1310721, 720897, 3, 1245186, 524289, 3, 1310722, 524289, 4, 1376260, 327681, 3, 1441796, 327681, 4, 1376261, 393217, 3, 1441797, 393217, 4, 1376262, 458753, 3, 1441798, 458753, 4, 1376263, 524289, 3, 1441799, 524289, 4, 1703944, 458753, 3, 1703945, 393217, 3, 1703942, 720897, 2, 1703943, 393217, 3, 1638404, 720897, 2, 1703940, 720897, 3, 1638405, 655361, 1, 1703941, 655361, 2, 1572867, 655361, 1, 1638403, 655361, 2, 1572866, 327681, 3, 1638402, 327681, 4, 1769478, 720897, 3, 1769479, 393217, 4, 1769480, 458753, 4, 1769481, 393217, 4, 1638400, 655361, 1, 1703936, 655361, 2, 1703937, 720897, 2, 1769473, 720897, 3, 1703938, 655361, 1, 1769474, 655361, 2, 1769475, 720897, 2, 1835011, 720897, 3, 1769476, 655361, 1, 1835012, 655361, 2, 1835013, 720897, 2, 1900549, 720897, 3, 1835015, 524289, 3, 1900551, 524289, 4, 1835014, 458753, 3, 1900550, 458753, 4)
+layer_0/tile_data = PackedInt32Array(851968, 393217, 3, 917504, 393217, 4, 851969, 458753, 3, 917505, 458753, 4, 851970, 524289, 3, 917506, 524289, 4, 1048579, 393217, 3, 1114115, 393217, 4, 1048580, 458753, 3, 1114116, 458753, 4, 1048581, 393217, 3, 1114117, 393217, 4, 1048582, 458753, 3, 1114118, 458753, 4, 1048583, 524289, 3, 1114119, 524289, 4, 1048578, 327681, 3, 1114114, 327681, 4, 1179655, 327681, 3, 1245191, 327681, 4, 1179656, 393217, 3, 1245192, 393217, 4, 1179657, 458753, 3, 1245193, 458753, 4, 1179648, 655361, 1, 1245184, 655361, 2, 1245185, 720897, 2, 1310721, 720897, 3, 1245186, 524289, 3, 1310722, 524289, 4, 1376260, 327681, 3, 1441796, 327681, 4, 1376261, 393217, 3, 1441797, 393217, 4, 1376262, 458753, 3, 1441798, 458753, 4, 1376263, 524289, 3, 1441799, 524289, 4, 1703944, 458753, 3, 1703945, 393217, 3, 1703942, 720897, 2, 1703943, 393217, 3, 1638404, 720897, 2, 1703940, 720897, 3, 1638405, 655361, 1, 1703941, 655361, 2, 1572867, 655361, 1, 1638403, 655361, 2, 1572866, 327681, 3, 1638402, 327681, 4, 1769478, 720897, 3, 1769479, 393217, 4, 1769480, 458753, 4, 1769481, 393217, 4, 1638400, 655361, 1, 1703936, 655361, 2, 1703937, 720897, 2, 1769473, 720897, 3, 1703938, 655361, 1, 1769474, 655361, 2, 1769475, 720897, 2, 1835011, 720897, 3, 1769476, 655361, 1, 1835012, 655361, 2, 1835013, 720897, 2, 1900549, 720897, 3, 1835015, 524289, 3, 1900551, 524289, 4, 1835014, 458753, 3, 1900550, 458753, 4, 720899, 327681, 4, 720900, 393217, 4, 720901, 458753, 4, 720902, 393217, 4, 720903, 458753, 4, 720904, 393217, 4, 720905, 458753, 4, 655363, 327681, 3, 655364, 393217, 3, 655365, 458753, 3, 655366, 393217, 3, 655367, 458753, 3, 655368, 393217, 3, 655369, 458753, 3)
 
 [node name="BoilingWater" parent="." instance=ExtResource("3_0457n")]
 position = Vector2(159, -182)
@@ -303,14 +295,6 @@ offset_bottom = 1155.0
 text = "Well done
 You've reached the abyss"
 
-[node name="Node2D" parent="." instance=ExtResource("5_1kan5")]
-position = Vector2(65, 417)
-curve = SubResource("Curve2D_syihj")
-
-[node name="PathFollow2D" parent="Node2D" index="0"]
-position = Vector2(148, 62)
-progress = 0.0
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -332,10 +316,6 @@ curve = SubResource("Curve2D_i3ees")
 [node name="Octopus2D3" parent="." instance=ExtResource("14_1yc0s")]
 position = Vector2(324, 792)
 curve = SubResource("Curve2D_7gjvl")
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_e4ji6")
-format = 2
 
 [node name="Props" type="Node2D" parent="."]
 
@@ -463,4 +443,39 @@ texture = ExtResource("11_hipdu")
 position = Vector2(294, 325)
 texture = ExtResource("10_u3o53")
 
-[editable path="Node2D"]
+[node name="Coral-3-burned3" type="Sprite2D" parent="Props"]
+show_behind_parent = true
+position = Vector2(233, 582)
+texture = ExtResource("24_fojq8")
+
+[node name="Coral-3-burned4" type="Sprite2D" parent="Props"]
+position = Vector2(245, 582)
+texture = ExtResource("25_wt4jp")
+
+[node name="Rock3-alt3" type="Sprite2D" parent="Props"]
+show_behind_parent = true
+position = Vector2(258, 581)
+texture = ExtResource("9_1l7op")
+
+[node name="Rock2-alt2" type="Sprite2D" parent="Props"]
+position = Vector2(294, 582)
+texture = ExtResource("13_isj1k")
+
+[node name="Coral2-burned3" type="Sprite2D" parent="Props"]
+position = Vector2(298, 580)
+texture = ExtResource("12_7m16i")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_6hpn1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Path2D/PathFollow2D"]
+root_node = NodePath("../../..")
+
+[node name="TileMap" type="TileMap" parent="Node2D/Path2D/PathFollow2D"]
+tile_set = SubResource("TileSet_e4ji6")
+format = 2
+layer_0/tile_data = PackedInt32Array(196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, 589825, 0, 1, 131073, 0, 0, 65537, 0, 0, 1, 0, 0)

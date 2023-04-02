@@ -129,7 +129,7 @@ shape = SubResource("RectangleShape2D_dhm8r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "animated_octopus"
-speed_scale = 0.2
+speed_scale = 0.22
 libraries = {
 "": SubResource("AnimationLibrary_r84mm")
 }

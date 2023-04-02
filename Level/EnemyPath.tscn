@@ -81,8 +81,7 @@ curve = SubResource("Curve2D_jnbb3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(80.9999, -171)
-progress = 189.694
+position = Vector2(1, 1)
 rotates = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="PathFollow2D"]
@@ -105,7 +104,7 @@ shape = SubResource("RectangleShape2D_0l86y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "animated_jellyfish"
-speed_scale = 0.3
+speed_scale = 0.13
 libraries = {
 "": SubResource("AnimationLibrary_kso03")
 }
