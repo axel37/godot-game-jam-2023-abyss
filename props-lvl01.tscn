@@ -1,0 +1,456 @@
+[gd_scene load_steps=21 format=3 uid="uid://dycnwhhqoojlx"]
+
+[ext_resource type="Texture2D" uid="uid://dju05ah073772" path="res://Assets/Coral/Coral2-burned1.png" id="1_78c43"]
+[ext_resource type="Texture2D" uid="uid://bm5liy1dud3ui" path="res://Assets/Coral/Coral4-burned2.png" id="2_ge1is"]
+[ext_resource type="Texture2D" uid="uid://h0m0iia2tuio" path="res://Assets/Coral/Coral4-burned1.png" id="3_0c4ih"]
+[ext_resource type="Texture2D" uid="uid://3xp0yeydcd8i" path="res://Assets/Coral/Coral4.png" id="4_dh0x3"]
+[ext_resource type="Texture2D" uid="uid://df7ej5dul5nr" path="res://Assets/objects/ginger-piou.png" id="5_rux54"]
+[ext_resource type="Texture2D" uid="uid://cos2pr4epskcf" path="res://Assets/Coral/Coral-3-burned2.png" id="6_8gs61"]
+[ext_resource type="Texture2D" uid="uid://dykimso7ris0t" path="res://Assets/Coral/Coral-3-burned1.png" id="7_ruqc4"]
+[ext_resource type="Texture2D" uid="uid://2h6w14sbi2dw" path="res://Assets/Coral/Coral1-burned1.png" id="8_oukn8"]
+[ext_resource type="Texture2D" uid="uid://ddl6jq08lhkb6" path="res://Assets/Rocks/Rock3-alt.png" id="9_odyoi"]
+[ext_resource type="Texture2D" uid="uid://bwslv8ujd3y6a" path="res://Assets/Rocks/Rock1-alt.png" id="10_1wlxg"]
+[ext_resource type="Texture2D" uid="uid://cxgyepm3sw5jb" path="res://Assets/objects/Plastic-Bag.png" id="11_5afp7"]
+[ext_resource type="Texture2D" uid="uid://0a7tgv46eqh1" path="res://Assets/Rocks/Rock2-alt.png" id="12_70wcs"]
+[ext_resource type="Texture2D" uid="uid://cpsffj3m6b01" path="res://Assets/objects/CanHolder.png" id="13_adoi3"]
+[ext_resource type="Texture2D" uid="uid://bh1p8pi3wg2ei" path="res://Assets/objects/CanHolderEmpty.png" id="14_yxqa2"]
+[ext_resource type="Texture2D" uid="uid://boqbbh4jha232" path="res://Assets/Rocks/Rock4-alt.png" id="15_rd7b2"]
+[ext_resource type="Texture2D" uid="uid://cgx5mr520dwqr" path="res://Assets/Coral/Coral2-burned2.png" id="16_px30i"]
+[ext_resource type="Texture2D" uid="uid://nx41vmtuun4e" path="res://Assets/Coral/Coral1-burned2.png" id="17_3ecep"]
+[ext_resource type="Texture2D" uid="uid://p0wi211ovrsy" path="res://Assets/Coral/Coral-3.png" id="18_8fb78"]
+[ext_resource type="Texture2D" uid="uid://bogj1t8asvvxj" path="res://Assets/Coral/Coral2.png" id="19_cv7kx"]
+[ext_resource type="Texture2D" uid="uid://wvw3hbnxcy0x" path="res://Assets/Coral/Coral1.png" id="20_pw3ga"]
+
+[node name="Props" type="Node2D"]
+
+[node name="Coral2-burned1" type="Sprite2D" parent="."]
+position = Vector2(240, 323)
+texture = ExtResource("1_78c43")
+
+[node name="Coral4-burned2" type="Sprite2D" parent="."]
+position = Vector2(104, 327)
+texture = ExtResource("2_ge1is")
+
+[node name="Coral4-burned3" type="Sprite2D" parent="."]
+position = Vector2(95, 517)
+texture = ExtResource("3_0c4ih")
+
+[node name="Coral4" type="Sprite2D" parent="."]
+position = Vector2(27, 423)
+texture = ExtResource("4_dh0x3")
+
+[node name="Ginger-piou3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(269, 589)
+rotation = -1.83259
+texture = ExtResource("5_rux54")
+
+[node name="Coral-3-burned2" type="Sprite2D" parent="."]
+position = Vector2(185, 517)
+texture = ExtResource("6_8gs61")
+
+[node name="Coral-3-burned1" type="Sprite2D" parent="."]
+position = Vector2(240, 519)
+texture = ExtResource("7_ruqc4")
+
+[node name="Coral1-burned3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(141, 516)
+texture = ExtResource("8_oukn8")
+
+[node name="Rock3-alt2" type="Sprite2D" parent="."]
+position = Vector2(165, 517)
+texture = ExtResource("9_odyoi")
+
+[node name="Rock1-alt2" type="Sprite2D" parent="."]
+position = Vector2(77, 517)
+texture = ExtResource("10_1wlxg")
+
+[node name="Plastic-bag3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(157, 522)
+rotation = 0.785397
+texture = ExtResource("11_5afp7")
+
+[node name="Rock2-alt" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(127, 516)
+texture = ExtResource("12_70wcs")
+
+[node name="CanHolder" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(73, 430)
+rotation = 1.57079
+texture = ExtResource("13_adoi3")
+
+[node name="Ginger-piou2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(27, 429)
+rotation = 0.785397
+texture = ExtResource("5_rux54")
+
+[node name="Plastic-bag2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(82, 430)
+rotation = 2.35619
+texture = ExtResource("11_5afp7")
+
+[node name="Ginger-piou" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(248, 332)
+rotation = 1.0472
+texture = ExtResource("5_rux54")
+
+[node name="CanHolderEmpty" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(100, 337)
+rotation = -2.8798
+texture = ExtResource("14_yxqa2")
+
+[node name="Plastic-bag" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(196, 331)
+rotation = 0.523598
+texture = ExtResource("11_5afp7")
+
+[node name="Rock4-alt" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(298, 325)
+texture = ExtResource("15_rd7b2")
+
+[node name="Rock3-alt" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(183, 323)
+texture = ExtResource("9_odyoi")
+
+[node name="Rock1-alt" type="Sprite2D" parent="."]
+position = Vector2(233, 324)
+texture = ExtResource("10_1wlxg")
+
+[node name="Coral4-burned1" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(124, 325)
+texture = ExtResource("3_0c4ih")
+
+[node name="Coral2-burned2" type="Sprite2D" parent="."]
+position = Vector2(281, 326)
+texture = ExtResource("16_px30i")
+
+[node name="Coral1-burned2" type="Sprite2D" parent="."]
+position = Vector2(170, 325)
+texture = ExtResource("17_3ecep")
+
+[node name="Coral1-burned1" type="Sprite2D" parent="."]
+position = Vector2(294, 325)
+texture = ExtResource("8_oukn8")
+
+[node name="Coral-3-burned3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(233, 582)
+texture = ExtResource("7_ruqc4")
+
+[node name="Coral-3-burned4" type="Sprite2D" parent="."]
+position = Vector2(245, 582)
+texture = ExtResource("6_8gs61")
+
+[node name="Rock3-alt3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(262, 581)
+texture = ExtResource("9_odyoi")
+
+[node name="Rock2-alt2" type="Sprite2D" parent="."]
+position = Vector2(294, 582)
+texture = ExtResource("12_70wcs")
+
+[node name="Coral2-burned3" type="Sprite2D" parent="."]
+position = Vector2(298, 580)
+texture = ExtResource("16_px30i")
+
+[node name="Rock3-alt4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(213, 900)
+texture = ExtResource("9_odyoi")
+
+[node name="Rock2-alt3" type="Sprite2D" parent="."]
+position = Vector2(237, 999)
+texture = ExtResource("12_70wcs")
+
+[node name="Rock4-alt2" type="Sprite2D" parent="."]
+position = Vector2(264, 997)
+texture = ExtResource("15_rd7b2")
+
+[node name="Plastic-bag4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(249, 1004)
+rotation = 2.27792
+texture = ExtResource("11_5afp7")
+
+[node name="Coral4-burned4" type="Sprite2D" parent="."]
+position = Vector2(53, 609)
+texture = ExtResource("2_ge1is")
+
+[node name="Coral4-burned5" type="Sprite2D" parent="."]
+position = Vector2(32, 599)
+texture = ExtResource("3_0c4ih")
+
+[node name="Coral-3" type="Sprite2D" parent="."]
+position = Vector2(274, 997)
+texture = ExtResource("18_8fb78")
+
+[node name="Coral2-burned4" type="Sprite2D" parent="."]
+position = Vector2(140, 677)
+texture = ExtResource("16_px30i")
+
+[node name="Coral1-burned4" type="Sprite2D" parent="."]
+position = Vector2(257, 687)
+texture = ExtResource("17_3ecep")
+
+[node name="Coral1-burned5" type="Sprite2D" parent="."]
+position = Vector2(184, 678)
+texture = ExtResource("8_oukn8")
+
+[node name="Coral-3-burned5" type="Sprite2D" parent="."]
+position = Vector2(169, 677)
+texture = ExtResource("6_8gs61")
+
+[node name="Coral-3-burned6" type="Sprite2D" parent="."]
+position = Vector2(25, 594)
+texture = ExtResource("7_ruqc4")
+
+[node name="CanHolderEmpty2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(63, 621)
+rotation = 1.57079
+texture = ExtResource("14_yxqa2")
+
+[node name="Coral2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(198, 900)
+texture = ExtResource("19_cv7kx")
+
+[node name="CanHolderEmpty3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(226, 690)
+rotation = -1.57079
+texture = ExtResource("14_yxqa2")
+
+[node name="CanHolder2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(210, 685)
+rotation = 2.35619
+texture = ExtResource("13_adoi3")
+
+[node name="Ginger-piou4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(148, 686)
+rotation = 1.0472
+texture = ExtResource("5_rux54")
+
+[node name="Rock4-alt3" type="Sprite2D" parent="."]
+position = Vector2(68, 614)
+texture = ExtResource("15_rd7b2")
+
+[node name="Rock2-alt4" type="Sprite2D" parent="."]
+position = Vector2(200, 830)
+texture = ExtResource("12_70wcs")
+
+[node name="Rock1-alt3" type="Sprite2D" parent="."]
+position = Vector2(156, 805)
+texture = ExtResource("10_1wlxg")
+
+[node name="Rock3-alt5" type="Sprite2D" parent="."]
+position = Vector2(290, 837)
+texture = ExtResource("9_odyoi")
+
+[node name="Plastic-bag5" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(285, 841)
+texture = ExtResource("11_5afp7")
+
+[node name="Coral1" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(228, 900)
+texture = ExtResource("20_pw3ga")
+
+[node name="Coral2-burned5" type="Sprite2D" parent="."]
+position = Vector2(64, 836)
+texture = ExtResource("16_px30i")
+
+[node name="Coral-3-burned7" type="Sprite2D" parent="."]
+position = Vector2(74, 842)
+texture = ExtResource("6_8gs61")
+
+[node name="Coral2-burned6" type="Sprite2D" parent="."]
+position = Vector2(78, 847)
+texture = ExtResource("16_px30i")
+
+[node name="Coral2-burned7" type="Sprite2D" parent="."]
+position = Vector2(147, 802)
+texture = ExtResource("1_78c43")
+
+[node name="CanHolder3" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(148, 809)
+rotation = 2.09439
+texture = ExtResource("13_adoi3")
+
+[node name="Coral1-burned6" type="Sprite2D" parent="."]
+position = Vector2(194, 827)
+texture = ExtResource("17_3ecep")
+
+[node name="Coral2-burned8" type="Sprite2D" parent="."]
+position = Vector2(245, 838)
+texture = ExtResource("1_78c43")
+
+[node name="Coral4-burned6" type="Sprite2D" parent="."]
+position = Vector2(254, 838)
+texture = ExtResource("3_0c4ih")
+
+[node name="Coral-3-burned8" type="Sprite2D" parent="."]
+position = Vector2(66, 780)
+texture = ExtResource("6_8gs61")
+
+[node name="Coral5" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(44, 830)
+texture = ExtResource("4_dh0x3")
+
+[node name="Coral1-burned7" type="Sprite2D" parent="."]
+position = Vector2(76, 775)
+texture = ExtResource("17_3ecep")
+
+[node name="Coral1-burned8" type="Sprite2D" parent="."]
+position = Vector2(118, 784)
+texture = ExtResource("8_oukn8")
+
+[node name="Coral4-burned7" type="Sprite2D" parent="."]
+position = Vector2(122, 785)
+texture = ExtResource("3_0c4ih")
+
+[node name="Ginger-piou5" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(201, 836)
+texture = ExtResource("5_rux54")
+
+[node name="Rock1-alt4" type="Sprite2D" parent="."]
+position = Vector2(82, 773)
+texture = ExtResource("10_1wlxg")
+
+[node name="Rock2-alt5" type="Sprite2D" parent="."]
+position = Vector2(57, 836)
+texture = ExtResource("12_70wcs")
+
+[node name="Rock4-alt4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(234, 838)
+texture = ExtResource("15_rd7b2")
+
+[node name="Rock2-alt6" type="Sprite2D" parent="."]
+position = Vector2(193, 678)
+texture = ExtResource("12_70wcs")
+
+[node name="Rock1-alt5" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(200, 676)
+texture = ExtResource("10_1wlxg")
+
+[node name="Rock3-alt6" type="Sprite2D" parent="."]
+position = Vector2(40, 421)
+texture = ExtResource("9_odyoi")
+
+[node name="Rock1-alt6" type="Sprite2D" parent="."]
+position = Vector2(138, 325)
+texture = ExtResource("10_1wlxg")
+
+[node name="Rock2-alt7" type="Sprite2D" parent="."]
+position = Vector2(150, 325)
+texture = ExtResource("12_70wcs")
+
+[node name="Rock2-alt8" type="Sprite2D" parent="."]
+position = Vector2(209, 325)
+texture = ExtResource("12_70wcs")
+
+[node name="Rock4-alt5" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(120, 868)
+texture = ExtResource("15_rd7b2")
+
+[node name="Rock2-alt9" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(107, 863)
+texture = ExtResource("12_70wcs")
+
+[node name="Rock1-alt7" type="Sprite2D" parent="."]
+position = Vector2(193, 900)
+texture = ExtResource("10_1wlxg")
+
+[node name="Rock2-alt10" type="Sprite2D" parent="."]
+position = Vector2(234, 901)
+texture = ExtResource("12_70wcs")
+
+[node name="Coral-3-burned9" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(157, 887)
+texture = ExtResource("7_ruqc4")
+
+[node name="Coral-3-burned10" type="Sprite2D" parent="."]
+position = Vector2(170, 895)
+texture = ExtResource("6_8gs61")
+
+[node name="Coral6" type="Sprite2D" parent="."]
+position = Vector2(116, 864)
+texture = ExtResource("4_dh0x3")
+
+[node name="Coral1-burned9" type="Sprite2D" parent="."]
+position = Vector2(185, 999)
+texture = ExtResource("8_oukn8")
+
+[node name="Coral2-burned9" type="Sprite2D" parent="."]
+position = Vector2(159, 996)
+texture = ExtResource("1_78c43")
+
+[node name="Coral2-burned10" type="Sprite2D" parent="."]
+position = Vector2(59, 964)
+texture = ExtResource("16_px30i")
+
+[node name="Coral-4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(68, 964)
+texture = ExtResource("18_8fb78")
+
+[node name="Rock3-alt7" type="Sprite2D" parent="."]
+position = Vector2(83, 965)
+texture = ExtResource("9_odyoi")
+
+[node name="Rock4-alt6" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(168, 997)
+texture = ExtResource("15_rd7b2")
+
+[node name="Rock2-alt11" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(154, 996)
+texture = ExtResource("12_70wcs")
+
+[node name="CanHolderEmpty4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(27, 961)
+rotation = -1.0472
+texture = ExtResource("14_yxqa2")
+
+[node name="CanHolder4" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(38, 966)
+rotation = -2.61799
+texture = ExtResource("13_adoi3")
+
+[node name="Plastic-bag6" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(124, 997)
+texture = ExtResource("11_5afp7")
+
+[node name="CanHolder5" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(92, 868)
+rotation = 2.09439
+texture = ExtResource("13_adoi3")
