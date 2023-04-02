@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://csln5dntey5tg"]
+[gd_scene load_steps=18 format=3 uid="uid://csln5dntey5tg"]
 
 [ext_resource type="PackedScene" uid="uid://c37lc3fhtcrn2" path="res://UI/hud.tscn" id="1_2xj5p"]
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="2_1su4t"]
-[ext_resource type="PackedScene" uid="uid://cfatt4nel4wdp" path="res://Level/boiling_water.tscn" id="3_imrxe"]
 [ext_resource type="Script" path="res://Level/Camera.gd" id="4_nlx3h"]
 [ext_resource type="Texture2D" uid="uid://da41eslrknavk" path="res://Assets/Terrain/tilemap-background.png" id="5_u7vma"]
 [ext_resource type="Texture2D" uid="uid://d1i8ho0hpxqfm" path="res://Assets/Terrain/tilemap-background2.png" id="6_2on7f"]
@@ -475,11 +474,6 @@ metadata/_edit_vertical_guides_ = [-3.0]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(160, 180)
-
-[node name="BoilingWater" parent="." instance=ExtResource("3_imrxe")]
-position = Vector2(159, -182)
-collision_mask = 0
-speed = 30.0
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(160, 0)
