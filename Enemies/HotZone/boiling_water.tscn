@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://byh14h335e6eo"]
 
 [ext_resource type="Script" path="res://Enemies/HotZone/boiling_water.gd" id="1_ev5dg"]
 [ext_resource type="Script" path="res://Enemies/HotZone/HotZone.gd" id="2_fyj0g"]

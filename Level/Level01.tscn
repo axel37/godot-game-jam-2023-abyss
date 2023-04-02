@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cfyccxlmxpx5r" path="res://Player/Player.tscn" id="1_lb3fp"]
 [ext_resource type="Texture2D" uid="uid://da41eslrknavk" path="res://Assets/Terrain/tilemap-background.png" id="2_5h8v4"]
 [ext_resource type="Script" path="res://Level/Camera.gd" id="3_17ded"]
-[ext_resource type="PackedScene" path="res://Enemies/HotZone/boiling_water.tscn" id="3_0457n"]
+[ext_resource type="PackedScene" uid="uid://byh14h335e6eo" path="res://Enemies/HotZone/boiling_water.tscn" id="3_0457n"]
 [ext_resource type="Texture2D" uid="uid://d1i8ho0hpxqfm" path="res://Assets/Terrain/tilemap-background2.png" id="4_777l6"]
 [ext_resource type="Texture2D" uid="uid://bwslv8ujd3y6a" path="res://Assets/Rocks/Rock1-alt.png" id="8_xrahl"]
 [ext_resource type="Texture2D" uid="uid://ddl6jq08lhkb6" path="res://Assets/Rocks/Rock3-alt.png" id="9_1l7op"]
@@ -273,7 +273,6 @@ layer_0/tile_data = PackedInt32Array(851968, 393217, 3, 917504, 393217, 4, 85196
 top_level = true
 position = Vector2(160, -180)
 collision_mask = 0
-speed = 30.0
 metadata/_edit_lock_ = true
 
 [node name="Camera" type="Camera2D" parent="."]
