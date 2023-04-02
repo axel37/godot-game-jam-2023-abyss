@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhrsjpt7npcm"]
+
+[ext_resource type="Script" path="res://Enemies/Shark.gd" id="1_d87df"]
+[ext_resource type="Texture2D" uid="uid://clo8rrd7pxa82" path="res://Assets/Mobs/Shark/Requin_Lutin_1.png" id="2_kip5p"]
+[ext_resource type="Texture2D" uid="uid://d07cjofgysjh3" path="res://Assets/Mobs/Shark/Requin_Lutin_4.png" id="3_6hrce"]
+[ext_resource type="Texture2D" uid="uid://bmrvhy7m0fl0f" path="res://Assets/Mobs/Shark/Requin_Lutin_3.png" id="4_v2qte"]
+[ext_resource type="Texture2D" uid="uid://ddyt1n4ownnag" path="res://Assets/Mobs/Shark/Requin_Lutin_2.png" id="5_xk56y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bsru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kip5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6hrce")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v2qte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xk56y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kip5p")
+}],
+"loop": false,
+"name": &"jaw_close",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xk56y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v2qte")
+}],
+"loop": false,
+"name": &"jaw_open",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1r4s"]
+size = Vector2(64, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik67v"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5y2kk"]
+radius = 18.0
+
+[node name="Shark" type="CharacterBody2D"]
+script = ExtResource("1_d87df")
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(-1, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+unique_name_in_owner = true
+position = Vector2(8, -4)
+sprite_frames = SubResource("SpriteFrames_1bsru")
+animation = &"jaw_open"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e1r4s")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2(40, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_ik67v")
+
+[node name="DamageArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(34, 6)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_5y2kk")
+disabled = true
+
+[connection signal="animation_finished" from="Node2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
